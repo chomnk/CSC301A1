@@ -9,9 +9,5 @@
         <module name="ProductService" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="CSC301A1" target="20" />
-      <module name="ProductService" target="20" />
-    </bytecodeTargetLevel>
   </component>
 </project>
