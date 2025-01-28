@@ -10,6 +10,8 @@ import java.net.InetSocketAddress;
 import java.nio.charset.StandardCharsets;
 import org.json.*;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.*;
 
 import java.util.List;
@@ -20,7 +22,12 @@ public class Main {
     private static final String DB_URL = "jdbc:sqlite:/workspaces/CSC301A1/a1/user.sqlite";
     private static Connection connection;
     public static void main(String[] args) throws IOException{
-        int port = 8081; //TODO: use port from config.json
+        String configPath = args[0];
+        System.out.println(configPath);
+        JSONObject config = new JSONObject(new String(Files.readAllBytes(Paths.get(configPath))));
+        JSONObject orderConfig = (JSONObject) config.get("UserService");
+        int port = orderConfig.getInt("port");
+        
         initDatabase();
         HttpServer httpServer = HttpServer.create(new InetSocketAddress(port), 0);
         httpServer.setExecutor(Executors.newFixedThreadPool(20));
