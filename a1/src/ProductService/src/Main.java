@@ -10,6 +10,8 @@ import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.nio.charset.StandardCharsets;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executors;
@@ -22,6 +24,8 @@ import java.sql.ResultSet;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import org.json.JSONObject;
+
 import java.sql.SQLException;
 
 import java.util.regex.Matcher;
@@ -31,17 +35,19 @@ public class Main {
     private static final String DB_URL = "jdbc:sqlite:./my_database.db";
     private static Connection connection;
     public static void main(String[] args) throws IOException {
+        String configPath = args[0];
+        JSONObject config = new JSONObject(new String(Files.readAllBytes(Paths.get(configPath))));
+        JSONObject orderConfig = (JSONObject) config.get("ProductService");
+        int port = orderConfig.getInt("port");
         initDatabase();
 
-        int port = 8081;
         HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
-        // Example: Set a custom executor with a fixed-size thread pool
+
         server.setExecutor(Executors.newFixedThreadPool(20)); // Adjust the pool size as needed
 
         server.createContext("/product", new ProductHandler());
-        //server.createContext("/product", new ProductGetHandler());
 
-        server.setExecutor(null); // creates a default executor
+        server.setExecutor(null);
 
         server.start();
 
