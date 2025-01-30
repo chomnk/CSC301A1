@@ -21,7 +21,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         String configPath = args[0];
         JSONObject config = new JSONObject(new String(Files.readAllBytes(Paths.get(configPath))));
-        JSONObject iscsConfig = config.getJSONObject("ISCS");
+        JSONObject iscsConfig = config.getJSONObject("InterServiceCommunication");
         int port = iscsConfig.getInt("port");
 
         JSONObject userConfig = config.getJSONObject("UserService");

@@ -45,6 +45,12 @@ public class Main {
                     int productId = requestJSON.getInt("product_id");
                     int quantity = requestJSON.getInt("quantity");
 
+                    if (userId <= 0 || productId <= 0 || quantity <= 0) {
+                        exchange.sendResponseHeaders(400, 0);
+                        exchange.close();
+                        return;
+                    }
+
                     String iscsUrl = "http://" + iscsIP + ":" + iscsPort;
                     String userUrl = iscsUrl + "/user/" + userId;
                     String productUrl = iscsUrl + "/product/" + productId;
@@ -53,16 +59,10 @@ public class Main {
                     HttpURLConnection productConnection = (HttpURLConnection) new URL(productUrl).openConnection();
                     userConnection.setRequestMethod("GET");
                     productConnection.setRequestMethod("GET");
+                    userConnection.setRequestProperty("Content-Type", "application/json");
+                    productConnection.setRequestProperty("Content-Type", "application/json");
                     userConnection.setDoOutput(true);
                     productConnection.setDoOutput(true);
-
-                    try (OutputStream outputStream = userConnection.getOutputStream()) {
-                        outputStream.write("".getBytes(StandardCharsets.UTF_8));
-                    }
-
-                    try (OutputStream outputStream = productConnection.getOutputStream()) {
-                        outputStream.write("".getBytes(StandardCharsets.UTF_8));
-                    }
 
                     int userResponseCode = userConnection.getResponseCode();
                     int productResponseCode = productConnection.getResponseCode();
@@ -73,8 +73,8 @@ public class Main {
                         return;
                     }
 
-                    JSONObject userResponse = new JSONObject(userConnection.getResponseMessage());
-                    JSONObject productResponse = new JSONObject(productConnection.getResponseMessage());
+                    JSONObject userResponse = new JSONObject(readInputStream(userConnection.getInputStream()));
+                    JSONObject productResponse = new JSONObject(readInputStream(productConnection.getInputStream()));
 
                     if (productResponse.getInt("quantity") < quantity) {
                         exchange.sendResponseHeaders(400, 0);
@@ -86,12 +86,16 @@ public class Main {
                     String productUpdateUrl = iscsUrl + "/product/update";
                     HttpURLConnection productUpdateConnection = (HttpURLConnection) new URL(productUpdateUrl).openConnection();
                     productUpdateConnection.setRequestMethod("POST");
+                    productUpdateConnection.setRequestProperty("Content-Type", "application/json");
                     JSONObject productUpdateRequest = new JSONObject();
                     productUpdateRequest.put("id", productId);
                     productUpdateRequest.put("quantity", productResponse.getInt("quantity") - quantity);
+                    productUpdateConnection.setDoOutput(true);
 
                     try (OutputStream outputStream = productUpdateConnection.getOutputStream()) {
+                        System.out.println("test");
                         outputStream.write(productUpdateRequest.toString().getBytes(StandardCharsets.UTF_8));
+                        outputStream.flush();
                     }
 
                     int productUpdateResponseCode = productUpdateConnection.getResponseCode();
@@ -103,6 +107,7 @@ public class Main {
 
                     exchange.sendResponseHeaders(200, 0);
                     exchange.close();
+                    return;
                 }
 
                 exchange.sendResponseHeaders(400, 0);

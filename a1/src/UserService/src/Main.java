@@ -23,7 +23,6 @@ public class Main {
     private static Connection connection;
     public static void main(String[] args) throws IOException{
         String configPath = args[0];
-        System.out.println(configPath);
         JSONObject config = new JSONObject(new String(Files.readAllBytes(Paths.get(configPath))));
         JSONObject orderConfig = (JSONObject) config.get("UserService");
         int port = orderConfig.getInt("port");
@@ -32,7 +31,6 @@ public class Main {
         HttpServer httpServer = HttpServer.create(new InetSocketAddress(port), 0);
         httpServer.setExecutor(Executors.newFixedThreadPool(20));
         httpServer.createContext("/user", new UserHandler());
-        httpServer.setExecutor(null);
         httpServer.start();
         System.out.println("User Service started on port " + port);
     }
@@ -76,6 +74,9 @@ public class Main {
                     String password = requestJSON.getString("password");
                     if (username == null || email == null || password == null) {
                         exchange.sendResponseHeaders(400, 0);
+                        OutputStream os = exchange.getResponseBody();
+                        os.write("Invalid request".getBytes());
+                        os.close();
                         exchange.close();
                         return;
                     }
@@ -89,7 +90,7 @@ public class Main {
                         statement.execute(insertSQL);
                     } catch (SQLException e) {
                         e.printStackTrace();
-                        exchange.sendResponseHeaders(500, 0);
+                        exchange.sendResponseHeaders(400, 0);
                         exchange.close();
                         return;
                     }
@@ -154,6 +155,25 @@ public class Main {
                         return;
                     }
 
+                    String checkSQL = String.format(
+                        "SELECT * FROM user WHERE id = %d AND username = '%s' AND email = '%s' AND password = '%s';",
+                        id, username, email, password
+                    );
+
+                    try (Statement statement = connection.createStatement()) {
+                        ResultSet resultSet = statement.executeQuery(checkSQL);
+                        if (!resultSet.next()) {
+                            exchange.sendResponseHeaders(404, 0);
+                            exchange.close();
+                            return;
+                        }
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                        exchange.sendResponseHeaders(500, 0);
+                        exchange.close();
+                        return;
+                    }
+
                     String deleteSQL = String.format(
                         "DELETE FROM user WHERE id = %d AND username = '%s' AND email = '%s' AND password = '%s';",
                         id, username, email, password
@@ -211,6 +231,7 @@ public class Main {
                     try (OutputStream os = exchange.getResponseBody()) {
                         os.write(response.getBytes());
                     }
+                    exchange.close();
 
                 } catch (SQLException e) {
                     e.printStackTrace();
