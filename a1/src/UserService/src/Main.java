@@ -94,7 +94,7 @@ public class Main {
                         return;
                     }
 
-                    exchange.sendResponseHeaders(200, 0);
+                    exchange.sendResponseHeaders(201, 0);
                     exchange.close();
                     return;
                 }
@@ -235,6 +235,13 @@ public class Main {
     }
 
     private static JSONObject getJSONObject(HttpExchange exchange) throws IOException {
-        return new JSONObject(getRequestBody(exchange));
+        String requestBody = getRequestBody(exchange);
+        try {
+            return new JSONObject(requestBody);
+        } catch (JSONException e) {
+            exchange.sendResponseHeaders(400, 0);
+            exchange.close();
+            return null;
+        }
     }
 }
