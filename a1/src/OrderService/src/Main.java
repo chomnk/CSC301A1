@@ -2,10 +2,7 @@ import com.sun.net.httpserver.HttpServer;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpExchange;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.URL;
@@ -24,8 +21,8 @@ public class Main {
         JSONObject orderConfig = (JSONObject) config.get("OrderService");
         int port = orderConfig.getInt("port");
 
-        iscsIP = ((JSONObject) orderConfig.get("InterServiceCommunication")).getString("ip");
-        iscsPort = ((JSONObject) orderConfig.get("InterServiceCommunication")).getInt("port");
+        iscsIP = ((JSONObject) config.get("InterServiceCommunication")).getString("ip");
+        iscsPort = ((JSONObject) config.get("InterServiceCommunication")).getInt("port");
 
         HttpServer httpServer = HttpServer.create(new InetSocketAddress(port), 0);
         httpServer.setExecutor(Executors.newFixedThreadPool(20));
@@ -123,16 +120,23 @@ public class Main {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
             String targetUrl = "http://" + iscsIP + ":" + iscsPort + "/user";
+
+            if (exchange.getRequestMethod().equalsIgnoreCase("GET")) {
+                targetUrl += "/" + exchange.getRequestURI().getPath().split("/")[2];
+            }
+
             HttpURLConnection connection = (HttpURLConnection) new URL(targetUrl).openConnection();
             connection.setRequestMethod(exchange.getRequestMethod());
             connection.setDoOutput(true);
 
-            try (OutputStream outputStream = connection.getOutputStream()) {
-                outputStream.write(getRequestBody(exchange).getBytes(StandardCharsets.UTF_8));
+            if (exchange.getRequestMethod().equalsIgnoreCase("POST")) {
+                try (OutputStream outputStream = connection.getOutputStream()) {
+                    outputStream.write(getRequestBody(exchange).getBytes(StandardCharsets.UTF_8));
+                }
             }
 
             int responseCode = connection.getResponseCode();
-            String responseMessage = connection.getResponseMessage();
+            String responseMessage = readInputStream(connection.getInputStream());
 
             exchange.sendResponseHeaders(responseCode, responseMessage.length());
             try (OutputStream os = exchange.getResponseBody()) {
@@ -146,22 +150,40 @@ public class Main {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
             String targetUrl = "http://" + iscsIP + ":" + iscsPort + "/product";
+
+            if (exchange.getRequestMethod().equalsIgnoreCase("GET")) {
+                targetUrl += "/" + exchange.getRequestURI().getPath().split("/")[2];
+            }
+
             HttpURLConnection connection = (HttpURLConnection) new URL(targetUrl).openConnection();
             connection.setRequestMethod(exchange.getRequestMethod());
             connection.setDoOutput(true);
 
-            try (OutputStream outputStream = connection.getOutputStream()) {
-                outputStream.write(getRequestBody(exchange).getBytes(StandardCharsets.UTF_8));
+            if (exchange.getRequestMethod().equalsIgnoreCase("POST")) {
+                try (OutputStream outputStream = connection.getOutputStream()) {
+                    outputStream.write(getRequestBody(exchange).getBytes(StandardCharsets.UTF_8));
+                }
             }
 
             int responseCode = connection.getResponseCode();
-            String responseMessage = connection.getResponseMessage();
+            String responseMessage = readInputStream(connection.getInputStream());
 
             exchange.sendResponseHeaders(responseCode, responseMessage.length());
             try (OutputStream os = exchange.getResponseBody()) {
                 os.write(responseMessage.getBytes(StandardCharsets.UTF_8));
             }
             exchange.close();
+        }
+    }
+
+    private static String readInputStream(InputStream inputStream) throws IOException {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
+            StringBuilder response = new StringBuilder();
+            String line;
+            while ((line = br.readLine()) != null) {
+                response.append(line);
+            }
+            return response.toString();
         }
     }
 
