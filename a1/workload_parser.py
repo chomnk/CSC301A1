@@ -67,7 +67,7 @@ def read_workload(file_path):
             elif entity == "PRODUCT":
                 handle_product_command(action, parts[2:])
             elif entity == "ORDER":
-                handle_order_command(parts[1:])
+                handle_order_command(parts[2:])
             else:
                 print("Invalid Command.")
 
