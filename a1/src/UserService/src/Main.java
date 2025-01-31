@@ -71,6 +71,12 @@ public class Main {
                     return;
                 }
 
+                if (!(requestJSON.get("command") instanceof String)) {
+                    exchange.sendResponseHeaders(400, -1);
+                    exchange.close();
+                    return;
+                }
+
                 // Handle "create" command
                 if (requestJSON.getString("command").equals("create")) {
 

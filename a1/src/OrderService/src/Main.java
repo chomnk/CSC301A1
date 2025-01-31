@@ -40,15 +40,33 @@ public class Main {
             if (exchange.getRequestMethod().equals("POST")) {
                 JSONObject requestJSON = getJSONObject(exchange);
 
+                if (!requestJSON.has("command") || !(requestJSON.get("command") instanceof String)) {
+                    exchange.sendResponseHeaders(400, -1);
+                    exchange.close();
+                    return;
+                }
+
                 if (requestJSON.getString("command").equals("place order")) {
+
+                    if (!validRequest(requestJSON)) {
+                        JSONObject response = new JSONObject();
+                        response.put("status", "Invalid Request");
+                        exchange.sendResponseHeaders(400, 0);
+                        try (OutputStream os = exchange.getResponseBody()) {
+                            os.write(response.toString().getBytes(StandardCharsets.UTF_8));
+                        }
+                    }
+
                     int userId = requestJSON.getInt("user_id");
                     int productId = requestJSON.getInt("product_id");
                     int quantity = requestJSON.getInt("quantity");
 
                     if (userId <= 0 || productId <= 0 || quantity <= 0) {
-                        exchange.sendResponseHeaders(400, 0);
-                        exchange.close();
-                        return;
+                        JSONObject response = new JSONObject();
+                        response.put("status", "Invalid Request");
+                        try (OutputStream os = exchange.getResponseBody()) {
+                            os.write(response.toString().getBytes(StandardCharsets.UTF_8));
+                        }
                     }
 
                     String iscsUrl = "http://" + iscsIP + ":" + iscsPort;
@@ -61,39 +79,43 @@ public class Main {
                     productConnection.setRequestMethod("GET");
                     userConnection.setRequestProperty("Content-Type", "application/json");
                     productConnection.setRequestProperty("Content-Type", "application/json");
-                    userConnection.setDoOutput(true);
-                    productConnection.setDoOutput(true);
 
                     int userResponseCode = userConnection.getResponseCode();
                     int productResponseCode = productConnection.getResponseCode();
 
                     if (userResponseCode != 200 || productResponseCode != 200) {
-                        exchange.sendResponseHeaders(400, 0);
-                        exchange.close();
-                        return;
+                        JSONObject response = new JSONObject();
+                        response.put("status", "Invalid Request");
+                        exchange.sendResponseHeaders(404, 0);
+                        try (OutputStream os = exchange.getResponseBody()) {
+                            os.write(response.toString().getBytes(StandardCharsets.UTF_8));
+                        }
                     }
 
                     JSONObject userResponse = new JSONObject(readInputStream(userConnection.getInputStream()));
                     JSONObject productResponse = new JSONObject(readInputStream(productConnection.getInputStream()));
 
                     if (productResponse.getInt("quantity") < quantity) {
+                        JSONObject response = new JSONObject();
+                        response.put("status", "Exceeded quantity limit");
                         exchange.sendResponseHeaders(400, 0);
                         try (OutputStream os = exchange.getResponseBody()) {
-                            os.write("Not enough quantity".getBytes(StandardCharsets.UTF_8));
+                            os.write(response.toString().getBytes(StandardCharsets.UTF_8));
                         }
                     }
 
-                    String productUpdateUrl = iscsUrl + "/product/update";
+                    String productUpdateUrl = iscsUrl + "/product";
                     HttpURLConnection productUpdateConnection = (HttpURLConnection) new URL(productUpdateUrl).openConnection();
                     productUpdateConnection.setRequestMethod("POST");
                     productUpdateConnection.setRequestProperty("Content-Type", "application/json");
                     JSONObject productUpdateRequest = new JSONObject();
+                    productUpdateRequest.put("command", "update");
                     productUpdateRequest.put("id", productId);
-                    productUpdateRequest.put("quantity", productResponse.getInt("quantity") - quantity);
+                    int newQuantity = productResponse.getInt("quantity") - quantity;
+                    productUpdateRequest.put("quantity", newQuantity);
                     productUpdateConnection.setDoOutput(true);
 
                     try (OutputStream outputStream = productUpdateConnection.getOutputStream()) {
-                        System.out.println("test");
                         outputStream.write(productUpdateRequest.toString().getBytes(StandardCharsets.UTF_8));
                         outputStream.flush();
                     }
@@ -105,19 +127,38 @@ public class Main {
                         return;
                     }
 
+                    JSONObject response = new JSONObject();
+                    response.put("status", "Success");
+                    response.put("product_id", productId);
+                    response.put("user_id", userId);
+                    response.put("quantity", quantity);
+
                     exchange.sendResponseHeaders(200, 0);
+                    try (OutputStream os = exchange.getResponseBody()) {
+                        os.write(response.toString().getBytes(StandardCharsets.UTF_8));
+                    }
                     exchange.close();
                     return;
                 }
 
-                exchange.sendResponseHeaders(400, 0);
-                exchange.close();
+                JSONObject response = new JSONObject();
+                response.put("status", "Invalid Request");
+                try (OutputStream os = exchange.getResponseBody()) {
+                    os.write(response.toString().getBytes(StandardCharsets.UTF_8));
+                }
             } else {
-                String response = "Invalid Request";
-                exchange.sendResponseHeaders(400, response.length());
-                exchange.getResponseBody().write(response.getBytes());
-                exchange.close();
+                JSONObject response = new JSONObject();
+                response.put("status", "Invalid Request");
+                try (OutputStream os = exchange.getResponseBody()) {
+                    os.write(response.toString().getBytes(StandardCharsets.UTF_8));
+                }
             }
+        }
+
+        private boolean validRequest(JSONObject requestJSON) {
+            return requestJSON.has("user_id") && requestJSON.has("product_id") && requestJSON.has("quantity")
+                    && requestJSON.get("user_id") instanceof Integer && requestJSON.get("product_id") instanceof Integer
+                    && requestJSON.get("quantity") instanceof Integer && requestJSON.getInt("quantity") > 0;
         }
     }
 
