@@ -19,7 +19,7 @@ CONFIG_FILE="$BASE_DIR/config.json"
 mkdir -p "$USER_COMPILED" "$PRODUCT_COMPILED" "$ORDER_COMPILED" "$ISCS_COMPILED"
 
 compile() {
-    javac -cp "./lib/org.json.jar" -d "$USER_COMPILED" "$USER_SERVICE_DIR"/src/*.java || { echo "UserService failed"; exit 1; }
+    javac -cp "./lib/org.json.jar:./lib/commons-codec-1.18.0.jar" -d "$USER_COMPILED" "$USER_SERVICE_DIR"/src/*.java || { echo "UserService failed"; exit 1; }
     javac -cp "./lib/gson-2.12.0.jar:./lib/org.json.jar" -d "$PRODUCT_COMPILED" "$PRODUCT_SERVICE_DIR"/src/*.java || { echo "ProductService failed"; exit 1; }
     javac -cp "./lib/org.json.jar" -d "$ORDER_COMPILED" "$ORDER_SERVICE_DIR"/src/*.java || { echo "OrderService failed"; exit 1; }
     javac -cp "./lib/org.json.jar" -d "$ISCS_COMPILED" "$ISCS_DIR"/src/*.java || { echo "ISCS failed"; exit 1; }
