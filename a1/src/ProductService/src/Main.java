@@ -166,7 +166,7 @@ public class Main {
                                 }
                             }
                         } else {
-                            sendResponse(exchange, 400, "No ID Provided.");
+                            sendResponse(exchange, 400, emptyResponse);
                         }
                     } else {
                         sendResponse(exchange, 404, "Command Error.");
