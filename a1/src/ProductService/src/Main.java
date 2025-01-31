@@ -107,7 +107,7 @@ public class Main {
                         String command = json.get("command").getAsString();
                         if (json.has("id")) {
                             Integer id = json.has("id") ? json.get("id").getAsInt() : null;
-                            String productName = json.has("productname") ? json.get("productname").getAsString() : null;
+                            String productName = json.has("name") ? json.get("name").getAsString() : null;
                             String description = json.has("description") ? json.get("description").getAsString() : null;
                             Double price = json.has("price") ? json.get("price").getAsDouble() : null;
 
@@ -115,7 +115,8 @@ public class Main {
                                     !json.get("quantity").getAsJsonPrimitive().isNumber() ||
                                     json.get("quantity").getAsDouble() % 1 != 0) {
 
-                                sendResponse(exchange, 400, emptyResponse); // invalid quantity type
+                                System.out.println(5);
+                                sendResponse(exchange, 400, "{}");
                                 return;
                             }
 
@@ -125,7 +126,7 @@ public class Main {
                                 case "create" -> {
                                     if (
                                             productName != null
-                                            && productName.length() != 0 // empty name
+                                            && !(productName.isEmpty()) // empty name
                                             && price != null
                                             && price >= 0 // negative price
                                             && description != null // missing description
@@ -133,6 +134,7 @@ public class Main {
                                     ) {
                                         create(exchange, id, productName, description, price, quantity);
                                     } else {
+                                        System.out.println(3);
                                         sendResponse(exchange, 400, emptyResponse);
                                     }
                                 }
@@ -235,7 +237,7 @@ public class Main {
                 if (affectedRows > 0) {
                     JsonObject item = new JsonObject();
                     item.addProperty("id", id);
-                    item.addProperty("productname", name);
+                    item.addProperty("name", name);
                     item.addProperty("description", description);
                     item.addProperty("price", price);
                     item.addProperty("quantity", quantity);
@@ -247,6 +249,7 @@ public class Main {
                     }
                 }
             } catch (SQLException e) {
+                System.out.println(e);
                 JsonObject item = new JsonObject();
                 String response = gson.toJson(item);
                 try {
@@ -294,7 +297,7 @@ public class Main {
                 if (affectedRows > 0) {
                     JsonObject item = new JsonObject();
                     item.addProperty("id", id);
-                    item.addProperty("productname", productname);
+                    item.addProperty("name", productname);
                     item.addProperty("description", description);
                     item.addProperty("price", price);
                     item.addProperty("quantity", quantity);
@@ -349,7 +352,7 @@ public class Main {
                     JsonObject item = new JsonObject();
                     String response = gson.toJson(item);
                     try {
-                        sendResponse(exchange, 200, response);
+                        sendResponse(exchange, 404, response);
                     } catch (IOException e) {
                         System.out.println(e);
                     }
@@ -359,7 +362,7 @@ public class Main {
                 JsonObject item = new JsonObject();
                 String response = gson.toJson(item);
                 try {
-                    sendResponse(exchange, 200, response);
+                    sendResponse(exchange, 404, response);
                 } catch (IOException e1) {
                     System.out.println(e);
                     System.out.println(e1);
@@ -392,7 +395,7 @@ public class Main {
                     ResultSet result = statement.executeQuery();
                     if (result.next()) {
                         item.addProperty("id", result.getInt("id"));
-                        item.addProperty("productname", result.getString("productname"));
+                        item.addProperty("name", result.getString("productname"));
                         item.addProperty("description", result.getString("description"));
                         item.addProperty("price", result.getDouble("price"));
                         item.addProperty("quantity", result.getInt("quantity"));
@@ -418,11 +421,24 @@ public class Main {
         }
     }
 
+    /*
     private static void sendResponse(HttpExchange exchange, int status, String response) throws IOException {
+        exchange.getResponseHeaders().set("Content-Type", "application/json");
         exchange.sendResponseHeaders(status, response.length());
         OutputStream os = exchange.getResponseBody();
         os.write(response.getBytes(StandardCharsets.UTF_8));
         os.close();
+    }
+    */
+
+
+    private static void sendResponse(HttpExchange exchange, int status, String response) throws IOException {
+        byte[] responseBytes = response.getBytes(StandardCharsets.UTF_8);
+        exchange.getResponseHeaders().set("Content-Type", "application/json");
+        exchange.sendResponseHeaders(status, responseBytes.length);
+        try (OutputStream os = exchange.getResponseBody()) {
+            os.write(responseBytes);
+        }
     }
 }
 
