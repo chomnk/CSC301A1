@@ -124,4 +124,4 @@ if __name__ == "__main__":
         sys.exit(1)
 
     workload_file = sys.argv[1]
-    parse_workload(workload_file)
+    read_workload(workload_file)
