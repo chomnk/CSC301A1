@@ -18,7 +18,7 @@ import java.sql.*;
 import java.util.concurrent.Executors;
 
 public class Main {
-    private static final String DB_URL = "jdbc:sqlite:./user.sqlite";
+    private static final String DB_URL = "jdbc:sqlite:./compiled/user.sqlite";
     private static Connection connection;
     public static void main(String[] args) throws IOException{
         String configPath = args[0];

@@ -32,7 +32,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Main {
-    private static final String DB_URL = "jdbc:sqlite:./my_database.db";
+    private static final String DB_URL = "jdbc:sqlite:./compiled/product.db";
     private static Connection connection;
     public static void main(String[] args) throws IOException {
         String configPath = args[0];

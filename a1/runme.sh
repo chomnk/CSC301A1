@@ -32,10 +32,10 @@ compile() {
 start() {
     case $1 in
         -u)
-            java -cp "$USER_COMPILED:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.47.0.0.jar:./compiled/commons-codec-1.18.0.jar" Main "$CONFIG_FILE" &
+            java -cp "$USER_COMPILED:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.48.0.0.jar:./compiled/commons-codec-1.18.0.jar" Main "$CONFIG_FILE" &
             ;;
         -p)
-            java -cp "$PRODUCT_COMPILED:./compiled/gson-2.12.0.jar:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.47.0.0.jar" Main "$CONFIG_FILE" &
+            java -cp "$PRODUCT_COMPILED:./compiled/gson-2.12.0.jar:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.48.0.0.jar" Main "$CONFIG_FILE" &
             ;;
         -o)
             java -cp "$ORDER_COMPILED:./compiled/json-20210307.jar" Main "$CONFIG_FILE" &
