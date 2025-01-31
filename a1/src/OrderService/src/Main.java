@@ -5,7 +5,8 @@ import com.sun.net.httpserver.HttpExchange;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
-import java.net.URL;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -73,8 +74,28 @@ public class Main {
                     String userUrl = iscsUrl + "/user/" + userId;
                     String productUrl = iscsUrl + "/product/" + productId;
 
-                    HttpURLConnection userConnection = (HttpURLConnection) new URL(userUrl).openConnection();
-                    HttpURLConnection productConnection = (HttpURLConnection) new URL(productUrl).openConnection();
+                    HttpURLConnection userConnection = null;
+                    try {
+                        userConnection = (HttpURLConnection) new URI(userUrl).toURL().openConnection();
+                    } catch (URISyntaxException e) {
+                        e.printStackTrace();
+                        exchange.sendResponseHeaders(500, -1);
+                    }
+                    if (userConnection == null) {
+                        exchange.sendResponseHeaders(500, -1);
+                        return;
+                    }
+                    HttpURLConnection productConnection = null;
+                    try {
+                        productConnection = (HttpURLConnection) new URI(productUrl).toURL().openConnection();
+                    } catch (URISyntaxException e) {
+                        e.printStackTrace();
+                        exchange.sendResponseHeaders(500, -1);
+                    }
+                    if (productConnection == null) {
+                        exchange.sendResponseHeaders(500, -1);
+                        return;
+                    }
                     userConnection.setRequestMethod("GET");
                     productConnection.setRequestMethod("GET");
                     userConnection.setRequestProperty("Content-Type", "application/json");
@@ -105,7 +126,12 @@ public class Main {
                     }
 
                     String productUpdateUrl = iscsUrl + "/product";
-                    HttpURLConnection productUpdateConnection = (HttpURLConnection) new URL(productUpdateUrl).openConnection();
+                    HttpURLConnection productUpdateConnection = null;
+                    try {
+                        productUpdateConnection = (HttpURLConnection) new URI(productUpdateUrl).toURL().openConnection();
+                    } catch (URISyntaxException e) {
+                        throw new RuntimeException(e);
+                    }
                     productUpdateConnection.setRequestMethod("POST");
                     productUpdateConnection.setRequestProperty("Content-Type", "application/json");
                     JSONObject productUpdateRequest = new JSONObject();
@@ -167,7 +193,17 @@ public class Main {
         public void handle(HttpExchange exchange) throws IOException {
             String targetUrl = "http://" + iscsIP + ":" + iscsPort + exchange.getRequestURI().getPath();
 
-            HttpURLConnection connection = (HttpURLConnection) new URL(targetUrl).openConnection();
+            HttpURLConnection connection = null;
+            try {
+                connection = (HttpURLConnection) new URI(targetUrl).toURL().openConnection();
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+                exchange.sendResponseHeaders(500, -1);
+            }
+            if (connection == null) {
+                exchange.sendResponseHeaders(500, -1);
+                return;
+            }
             connection.setRequestMethod(exchange.getRequestMethod());
 
             if (exchange.getRequestMethod().equalsIgnoreCase("POST")) {

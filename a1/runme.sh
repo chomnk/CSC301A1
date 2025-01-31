@@ -23,7 +23,6 @@ compile() {
     javac -cp "./lib/gson-2.12.0.jar:./lib/org.json.jar" -d "$PRODUCT_COMPILED" "$PRODUCT_SERVICE_DIR"/src/*.java || { echo "ProductService failed"; exit 1; }
     javac -cp "./lib/org.json.jar" -d "$ORDER_COMPILED" "$ORDER_SERVICE_DIR"/src/*.java || { echo "OrderService failed"; exit 1; }
     javac -cp "./lib/org.json.jar" -d "$ISCS_COMPILED" "$ISCS_DIR"/src/*.java || { echo "ISCS failed"; exit 1; }
-    pip3 install requests
 }
 
 start() {

@@ -5,7 +5,8 @@ import com.sun.net.httpserver.HttpExchange;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
-import java.net.URL;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -55,7 +56,17 @@ public class Main {
             String method = exchange.getRequestMethod();
             String targetUrl = "http://" + targetIP + ":" + targetPort + exchange.getRequestURI().toString();
 
-            HttpURLConnection connection = (HttpURLConnection) new URL(targetUrl).openConnection();
+            HttpURLConnection connection = null;
+            try {
+                connection = (HttpURLConnection) (new URI(targetUrl)).toURL().openConnection();
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+                exchange.sendResponseHeaders(500, -1);
+            }
+            if (connection == null) {
+                exchange.sendResponseHeaders(500, -1);
+                return;
+            }
             connection.setRequestMethod(method);
             connection.setDoOutput(true);
 
