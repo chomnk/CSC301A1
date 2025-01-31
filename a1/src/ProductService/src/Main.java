@@ -153,7 +153,7 @@ public class Main {
                                             productName != null // missing name field
                                             && id != null // invalid id(actually in handler)
                                     ) {
-                                        delete(exchange, id, productName, description, price, quantity);
+                                        delete(exchange, id, productName, price, quantity);
                                     } else {
                                         sendResponse(exchange, 400, emptyResponse);
                                     }
@@ -302,6 +302,12 @@ public class Main {
                     } catch (IOException e) {
                         System.out.println(e);
                     }
+                } else {
+                    try {
+                        sendResponse(exchange, 404, emptyResponse);
+                    } catch (IOException e) {
+                        System.out.println(e);
+                    }
                 }
             } catch (SQLException e1) {
                 JsonObject item = new JsonObject();
@@ -315,8 +321,8 @@ public class Main {
             }
         }
 
-        private static void delete(HttpExchange exchange, int id, String name, String description, Double price, Integer quantity) {
-            String check_sql = "SELECT COUNT(*) FROM products WHERE id = ? AND productname = ? AND description = ? AND price = ? AND quantity = ?";
+        private static void delete(HttpExchange exchange, int id, String name, Double price, Integer quantity) {
+            String check_sql = "SELECT COUNT(*) FROM products WHERE id = ? AND productname = ? AND price = ? AND quantity = ?";
             String delete_sql = "DELETE FROM products WHERE id = ?";
 
             try (Connection conn = DriverManager.getConnection(DB_URL);
@@ -325,9 +331,8 @@ public class Main {
 
                 check.setInt(1, id);
                 check.setString(2, name);
-                check.setString(3, description);
-                check.setDouble(4, price);
-                check.setInt(5, quantity);
+                check.setDouble(3, price);
+                check.setInt(4, quantity);
 
                 ResultSet result = check.executeQuery();
                 if (result.next() && result.getInt(1) > 0) {
