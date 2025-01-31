@@ -14,8 +14,6 @@ PRODUCT_COMPILED="$COMPILED_DIR/ProductService"
 ORDER_COMPILED="$COMPILED_DIR/OrderService"
 ISCS_COMPILED="$COMPILED_DIR/ISCS"
 
-CONFIG_FILE="$BASE_DIR/config.json"
-
 mkdir -p "$USER_COMPILED" "$PRODUCT_COMPILED" "$ORDER_COMPILED" "$ISCS_COMPILED"
 
 compile() {
@@ -53,8 +51,25 @@ start() {
     esac
 }
 
+if [ $# -lt 1 ]; then
+  echo "Usage: $0 -c | [-u|-p|-o|-i] [config.json] | -w <workload.txt>"
+  exit 1
+fi
+
 if [[ "$1" == "-c" ]]; then
     compile
 else
+    if [[ "$1" == "-w" ]]; then
+        if [ $# -lt 2 ]; then
+          echo "Usage: $0 -w <workload.txt>"
+          exit 1
+        fi
+    else
+        if [ $# -lt 2 ]; then
+          CONFIG_FILE="$BASE_DIR/config.json"
+        else
+          CONFIG_FILE="$2"
+        fi
+    fi
     start "$@"
 fi
