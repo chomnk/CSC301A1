@@ -28,7 +28,7 @@ compile() {
 start() {
     case $1 in
         -u)
-            java -cp "$USER_COMPILED:./lib/org.json.jar:./lib/sqlite-jdbc-3.47.0.0.jar" Main "$CONFIG_FILE" &
+            java -cp "$USER_COMPILED:./lib/org.json.jar:./lib/sqlite-jdbc-3.47.0.0.jar:./lib/commons-codec-1.18.0.jar" Main "$CONFIG_FILE" &
             ;;
         -p)
             java -cp "$PRODUCT_COMPILED:./lib/gson-2.12.0.jar:./lib/org.json.jar:./lib/sqlite-jdbc-3.47.0.0.jar" Main "$CONFIG_FILE" &

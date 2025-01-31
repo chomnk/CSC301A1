@@ -114,8 +114,7 @@ public class Main {
                             if (!json.has("quantity") || !json.get("quantity").isJsonPrimitive() ||
                                     !json.get("quantity").getAsJsonPrimitive().isNumber() ||
                                     json.get("quantity").getAsDouble() % 1 != 0) {
-
-                                System.out.println(5);
+                                
                                 sendResponse(exchange, 400, "{}");
                                 return;
                             }
