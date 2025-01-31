@@ -23,21 +23,22 @@ compile() {
     javac -cp "./lib/gson-2.12.0.jar:./lib/org.json.jar" -d "$PRODUCT_COMPILED" "$PRODUCT_SERVICE_DIR"/src/*.java || { echo "ProductService failed"; exit 1; }
     javac -cp "./lib/org.json.jar" -d "$ORDER_COMPILED" "$ORDER_SERVICE_DIR"/src/*.java || { echo "OrderService failed"; exit 1; }
     javac -cp "./lib/org.json.jar" -d "$ISCS_COMPILED" "$ISCS_DIR"/src/*.java || { echo "ISCS failed"; exit 1; }
+    pip3 install requests
 }
 
 start() {
     case $1 in
         -u)
-            java -cp "$USER_COMPILED" Main "$CONFIG_FILE" &
+            java -cp "$USER_COMPILED:./lib/org.json.jar:./lib/sqlite-jdbc-3.47.0.0.jar" Main "$CONFIG_FILE" &
             ;;
         -p)
-            java -cp "$PRODUCT_COMPILED" Main "$CONFIG_FILE" &
+            java -cp "$PRODUCT_COMPILED:./lib/gson-2.12.0.jar:./lib/org.json.jar:./lib/sqlite-jdbc-3.47.0.0.jar" Main "$CONFIG_FILE" &
             ;;
         -o)
-            java -cp "$ORDER_COMPILED" Main "$CONFIG_FILE" &
+            java -cp "$ORDER_COMPILED:./lib/org.json.jar" Main "$CONFIG_FILE" &
             ;;
         -i)
-            java -cp "$ISCS_COMPILED" Main "$CONFIG_FILE" &
+            java -cp "$ISCS_COMPILED:./lib/org.json.jar" Main "$CONFIG_FILE" &
             ;;
         -w)
             python3 "$BASE_DIR/workload_parser.py" "$2" &
