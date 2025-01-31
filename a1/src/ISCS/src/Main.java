@@ -66,11 +66,13 @@ public class Main {
             }
 
             int responseCode = connection.getResponseCode();
-            String responseMessage = readResponse(connection);
+            exchange.sendResponseHeaders(responseCode, 0);
 
-            exchange.sendResponseHeaders(responseCode, responseMessage.length());
-            try (OutputStream os = exchange.getResponseBody()) {
-                os.write(responseMessage.getBytes(StandardCharsets.UTF_8));
+            if (connection.getContentLength() != 0) {
+                String responseMessage = responseCode >= 200 && responseCode < 400 ? readInputStream(connection.getInputStream()) : readInputStream(connection.getErrorStream());
+                try (OutputStream os = exchange.getResponseBody()) {
+                    os.write(responseMessage.getBytes(StandardCharsets.UTF_8));
+                }
             }
             exchange.close();
         }
@@ -87,8 +89,8 @@ public class Main {
         }
     }
 
-    private static String readResponse(HttpURLConnection connection) throws IOException {
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8))) {
+    private static String readInputStream(InputStream inputStream) throws IOException {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
             StringBuilder response = new StringBuilder();
             String line;
             while ((line = br.readLine()) != null) {

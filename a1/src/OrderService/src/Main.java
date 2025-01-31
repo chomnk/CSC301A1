@@ -27,8 +27,8 @@ public class Main {
         HttpServer httpServer = HttpServer.create(new InetSocketAddress(port), 0);
         httpServer.setExecutor(Executors.newFixedThreadPool(20));
         httpServer.createContext("/order", new OrderHandler());
-        httpServer.createContext("/user", new UserHandler());
-        httpServer.createContext("/product", new ProductHandler());
+        httpServer.createContext("/user", new ProxyHandler());
+        httpServer.createContext("/product", new ProxyHandler());
         httpServer.setExecutor(null);
         httpServer.start();
         System.out.println("Order Service started on port " + port);
@@ -121,61 +121,29 @@ public class Main {
         }
     }
 
-    static class UserHandler implements HttpHandler {
+    static class ProxyHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
-            String targetUrl = "http://" + iscsIP + ":" + iscsPort + "/user";
-
-            if (exchange.getRequestMethod().equalsIgnoreCase("GET")) {
-                targetUrl += "/" + exchange.getRequestURI().getPath().split("/")[2];
-            }
+            String targetUrl = "http://" + iscsIP + ":" + iscsPort + exchange.getRequestURI().getPath();
 
             HttpURLConnection connection = (HttpURLConnection) new URL(targetUrl).openConnection();
             connection.setRequestMethod(exchange.getRequestMethod());
-            connection.setDoOutput(true);
 
             if (exchange.getRequestMethod().equalsIgnoreCase("POST")) {
+                connection.setDoOutput(true);
                 try (OutputStream outputStream = connection.getOutputStream()) {
                     outputStream.write(getRequestBody(exchange).getBytes(StandardCharsets.UTF_8));
                 }
             }
 
             int responseCode = connection.getResponseCode();
-            String responseMessage = readInputStream(connection.getInputStream());
+            exchange.sendResponseHeaders(responseCode, 0);
 
-            exchange.sendResponseHeaders(responseCode, responseMessage.length());
-            try (OutputStream os = exchange.getResponseBody()) {
-                os.write(responseMessage.getBytes(StandardCharsets.UTF_8));
-            }
-            exchange.close();
-        }
-    }
-
-    static class ProductHandler implements HttpHandler {
-        @Override
-        public void handle(HttpExchange exchange) throws IOException {
-            String targetUrl = "http://" + iscsIP + ":" + iscsPort + "/product";
-
-            if (exchange.getRequestMethod().equalsIgnoreCase("GET")) {
-                targetUrl += "/" + exchange.getRequestURI().getPath().split("/")[2];
-            }
-
-            HttpURLConnection connection = (HttpURLConnection) new URL(targetUrl).openConnection();
-            connection.setRequestMethod(exchange.getRequestMethod());
-            connection.setDoOutput(true);
-
-            if (exchange.getRequestMethod().equalsIgnoreCase("POST")) {
-                try (OutputStream outputStream = connection.getOutputStream()) {
-                    outputStream.write(getRequestBody(exchange).getBytes(StandardCharsets.UTF_8));
+            if (connection.getContentLength() != 0) {
+                String responseMessage = responseCode >= 200 && responseCode < 400 ? readInputStream(connection.getInputStream()) : readInputStream(connection.getErrorStream());
+                try (OutputStream os = exchange.getResponseBody()) {
+                    os.write(responseMessage.getBytes(StandardCharsets.UTF_8));
                 }
-            }
-
-            int responseCode = connection.getResponseCode();
-            String responseMessage = readInputStream(connection.getInputStream());
-
-            exchange.sendResponseHeaders(responseCode, responseMessage.length());
-            try (OutputStream os = exchange.getResponseBody()) {
-                os.write(responseMessage.getBytes(StandardCharsets.UTF_8));
             }
             exchange.close();
         }
