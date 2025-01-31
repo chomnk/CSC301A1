@@ -1,0 +1,1 @@
+Please run ./runme.sh -c in the current directory to compile the code.
