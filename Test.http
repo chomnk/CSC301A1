@@ -1,0 +1,139 @@
+
+### Create user
+POST http://localhost:14001/user
+Content-Type: application/json
+
+{
+    "command": "create",
+    "id": 1000,
+    "username": "tester1000",
+    "email": "test1000@test.com",
+    "password": "password1000"
+}
+
+### Create user insufficient fields
+POST http://localhost:14000/user
+Content-Type: application/json
+
+{
+    "command": "create",
+    "id": 23823,
+    "username": "username-12345"
+}
+
+### Update user
+POST http://localhost:14000/user
+Content-Type: application/json
+
+{
+    "command": "update",
+    "id": 23823,
+    "username": "username-12345-edit",
+    "email": "foo@bar2.com",
+    "password": "blablabla"
+}
+
+### Update user field
+POST http://localhost:14000/user
+Content-Type: application/json
+
+{
+    "command": "update",
+    "id": 23823,
+    "username": "username-12345-edit2"
+}
+
+### Delete user
+POST http://localhost:14000/user
+Content-Type: application/json
+
+{
+    "command": "delete",
+    "id": 23823,
+    "username": "username-12345-edit2",
+    "email": "foo@bar2.com",
+    "password": "blablabla"
+}
+
+### Get user
+GET http://localhost:14000/user/1
+
+### Create Product
+POST http://localhost:14000/product
+
+{
+    "command": "create",
+    "id": 23823,
+    "productname": "productname-32843hnksjn4398",
+    "price": 3.99 ,
+    "quantity": 9
+}
+
+### Update Product
+POST http://localhost:14000/product
+
+{
+    "command": "update",
+    "id": 23823,
+    "productname": "productname-32843hnksjn4398-edit",
+    "price": 4.99 ,
+    "quantity": 10
+}
+
+### Update Product field
+
+POST http://localhost:14000/product
+
+{
+    "command": "update",
+    "id": 23823,
+    "productname": "productname-32843hnksjn4398-edit2"
+}
+
+### Delete Product
+POST http://localhost:14000/product
+
+{
+    "command": "delete",
+    "id": 23823,
+    "productname": "productname-32843hnksjn4398-edit2",
+    "price": 4.99 ,
+    "quantity": 10
+}
+
+### Get Product
+GET http://localhost:14000/product/23823
+
+### Place Order
+POST http://localhost:14000/order
+
+{
+    "command": "place order",
+    "user_id": 23823,
+    "product_id": 23823,
+    "quantity": 3
+}
+
+###
+POST http://localhost:14000/order
+Content-Type: application/json
+
+{
+        "command": "place order",
+        "product_id": 2014,
+        "user_id": 1009,
+        "quantity": -1
+    }
+
+###
+POST http://localhost:14000/product
+Content-Type: application/json
+
+{
+    "command": "update",
+    "id": 2011,
+    "quantity": 8
+}
+
+###
+GET http://localhost:15000/product/2007

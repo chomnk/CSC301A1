@@ -5,14 +5,14 @@
   }   ,
   "OrderService": {
     "port": 14000,
-    "ip": "142.1.46.48"
+    "ip": "127.0.0.1"
   }   ,
   "ProductService": {
     "port": 15000,
-    "ip": "142.1.46.49"
+    "ip": "127.0.0.1"
   }   ,
   "InterServiceCommunication": {
-    "port": 14000,
+    "port": 14005,
     "ip": "127.0.0.1"
   }
 }
