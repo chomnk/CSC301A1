@@ -1,6 +1,5 @@
 import json
 import time
-
 import requests
 import sys
 from deepdiff import DeepDiff
@@ -17,11 +16,30 @@ def send_post_request(url, data):
         print(f"An error occurred: {e}")
         return None
 
+def parse_response(response):
+    """
+    Parse the response body and handle empty responses or those without valid JSON.
+    """
+    if not response.text.strip():
+        # Handle completely empty response body
+        return None
+
+    try:
+        # Attempt to parse the response body as JSON
+        return response.json()
+    except json.JSONDecodeError:
+        # If it's not JSON, return the raw text
+        return response.text
+
 def compare_responses(expected_data, actual_data):
     """
     Compare the expected response with the actual response (semantically).
     Uses deepdiff for more flexible comparison.
     """
+    if expected_data in [None, {}, [], '']:
+        if actual_data in [None, {}, [], '']:
+            return None  # No difference if both are empty or equivalent
+
     diff = DeepDiff(expected_data, actual_data, ignore_order=True, verbose_level=2)
     return diff
 
@@ -40,7 +58,7 @@ def process_json(file_path, url, expected_responses):
                 response = send_post_request(url, nested_object)
 
                 if response is not None:
-                    actual_response = response.json() if response.status_code == 200 else response.text
+                    actual_response = parse_response(response)
                     expected_response = expected_responses.get(key, None)
 
                     if expected_response is not None:
