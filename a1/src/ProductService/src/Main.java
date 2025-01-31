@@ -120,36 +120,32 @@ public class Main {
                                 return;
                             }
 
-                            int quantity = json.get("quantity").getAsInt();
+                            Integer quantity = json.get("quantity").getAsInt();
 
                             switch (command) {
                                 case "create" -> {
                                     if (
-                                            productName != null
-                                            && !(productName.isEmpty()) // empty name
-                                            && price != null
-                                            && price >= 0 // negative price
-                                            && description != null // missing description
-                                            && quantity >= 0 // negative quantity
+                                            (productName != null && productName.isEmpty())
+                                            || description == null
+                                            || (quantity != null && quantity < 0)
+                                            || (price != null && price < 0)
                                     ) {
-                                        create(exchange, id, productName, description, price, quantity);
-                                    } else {
-                                        System.out.println(3);
                                         sendResponse(exchange, 400, emptyResponse);
+                                    } else {
+                                        create(exchange, id, productName, description, price, quantity;
                                     }
                                 }
 
                                 case "update" -> {
                                     if (
-                                            id != null // missing id
-                                            && description != null // missing description
-                                            && price != null
-                                            && price >= 0 // negative price
-                                            && quantity >= 0 // negative quantity
+                                            id == null
+                                            || (description != null && description.isEmpty())
+                                            || (price != null && price < 0)
+                                            || (quantity != null && quantity < 0)
                                     ) {
-                                        update(exchange, id, productName, description, price, quantity);
-                                    } else {
                                         sendResponse(exchange, 400, emptyResponse);
+                                    } else {
+                                        update(exchange, id, productName, description, price, quantity);
                                     }
                                 }
 
