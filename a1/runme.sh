@@ -19,25 +19,29 @@ CONFIG_FILE="$BASE_DIR/config.json"
 mkdir -p "$USER_COMPILED" "$PRODUCT_COMPILED" "$ORDER_COMPILED" "$ISCS_COMPILED"
 
 compile() {
-    javac -cp "./lib/org.json.jar:./lib/commons-codec-1.18.0.jar" -d "$USER_COMPILED" "$USER_SERVICE_DIR"/src/*.java || { echo "UserService failed"; exit 1; }
-    javac -cp "./lib/gson-2.12.0.jar:./lib/org.json.jar" -d "$PRODUCT_COMPILED" "$PRODUCT_SERVICE_DIR"/src/*.java || { echo "ProductService failed"; exit 1; }
-    javac -cp "./lib/org.json.jar" -d "$ORDER_COMPILED" "$ORDER_SERVICE_DIR"/src/*.java || { echo "OrderService failed"; exit 1; }
-    javac -cp "./lib/org.json.jar" -d "$ISCS_COMPILED" "$ISCS_DIR"/src/*.java || { echo "ISCS failed"; exit 1; }
+    wget -nc -P "./compiled/" https://repo1.maven.org/maven2/com/google/code/gson/gson/2.12.0/gson-2.12.0.jar
+    wget -nc -P "./compiled/" https://repo1.maven.org/maven2/org/json/json/20210307/json-20210307.jar
+    wget -nc -P "./compiled/" https://repo1.maven.org/maven2/commons-codec/commons-codec/1.18.0/commons-codec-1.18.0.jar
+    wget -nc -P "./compiled/" https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.48.0.0/sqlite-jdbc-3.48.0.0.jar
+    javac -cp "./compiled/json-20210307.jar:./compiled/commons-codec-1.18.0.jar" -d "$USER_COMPILED" "$USER_SERVICE_DIR"/src/*.java || { echo "UserService failed"; exit 1; }
+    javac -cp "./compiled/gson-2.12.0.jar:./compiled/json-20210307.jar" -d "$PRODUCT_COMPILED" "$PRODUCT_SERVICE_DIR"/src/*.java || { echo "ProductService failed"; exit 1; }
+    javac -cp "./compiled/json-20210307.jar" -d "$ORDER_COMPILED" "$ORDER_SERVICE_DIR"/src/*.java || { echo "OrderService failed"; exit 1; }
+    javac -cp "./compiled/json-20210307.jar" -d "$ISCS_COMPILED" "$ISCS_DIR"/src/*.java || { echo "ISCS failed"; exit 1; }
 }
 
 start() {
     case $1 in
         -u)
-            java -cp "$USER_COMPILED:./lib/org.json.jar:./lib/sqlite-jdbc-3.47.0.0.jar:./lib/commons-codec-1.18.0.jar" Main "$CONFIG_FILE" &
+            java -cp "$USER_COMPILED:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.47.0.0.jar:./compiled/commons-codec-1.18.0.jar" Main "$CONFIG_FILE" &
             ;;
         -p)
-            java -cp "$PRODUCT_COMPILED:./lib/gson-2.12.0.jar:./lib/org.json.jar:./lib/sqlite-jdbc-3.47.0.0.jar" Main "$CONFIG_FILE" &
+            java -cp "$PRODUCT_COMPILED:./compiled/gson-2.12.0.jar:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.47.0.0.jar" Main "$CONFIG_FILE" &
             ;;
         -o)
-            java -cp "$ORDER_COMPILED:./lib/org.json.jar" Main "$CONFIG_FILE" &
+            java -cp "$ORDER_COMPILED:./compiled/json-20210307.jar" Main "$CONFIG_FILE" &
             ;;
         -i)
-            java -cp "$ISCS_COMPILED:./lib/org.json.jar" Main "$CONFIG_FILE" &
+            java -cp "$ISCS_COMPILED:./compiled/json-20210307.jar" Main "$CONFIG_FILE" &
             ;;
         -w)
             python3 "$BASE_DIR/workload_parser.py" "$2" &
