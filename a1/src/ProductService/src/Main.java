@@ -132,7 +132,7 @@ public class Main {
                                     ) {
                                         sendResponse(exchange, 400, emptyResponse);
                                     } else {
-                                        create(exchange, id, productName, description, price, quantity;
+                                        create(exchange, id, productName, description, price, quantity);
                                     }
                                 }
 
