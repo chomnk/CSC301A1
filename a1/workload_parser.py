@@ -2,8 +2,10 @@ import sys
 import requests
 import json
 import os
+import sqlite3
 
 CONFIG_FILE = "config.json"
+FIRST_ORDER_COMMAND = True
 
 def safe_int(value, default = -4321):
     try:
@@ -67,7 +69,25 @@ def read_workload(file_path):
             elif entity == "PRODUCT":
                 handle_product_command(action, parts[2:])
             elif entity == "ORDER":
+                if FIRST_ORDER_COMMAND:
+                    if action != "restart":
+                        con = sqlite3.connect("./compiled/product.db")
+                        cur = con.cursor()
+                        cur.execute("DROP TABLE IF EXISTS product")
+                        cur.close()
+                        con.close()
+                        con = sqlite3.connect("./compiled/user.sqlite")
+                        cur = con.cursor()
+                        cur.execute("DROP TABLE IF EXISTS user")
+                        cur.close()
+                        con.close()
+                    FIRST_ORDER_COMMAND = False
+                    continue
                 handle_order_command(parts[2:])
+            elif entity == "shutdown":
+                pass
+            elif entity == "restart":
+                pass
             else:
                 print("Invalid Command.")
 
@@ -148,6 +168,34 @@ def parse_update_fields(fields):
         else:
             updates[key] = value
     return updates
+
+def shutdown_user_service():
+    f = open(".user_service.pid", "r")
+    pid = int(f.read())
+    f.close()
+    os.kill(pid, 9)
+    os.remove(".user_service.pid")
+
+def shutdown_product_service():
+    f = open(".product_service.pid", "r")
+    pid = int(f.read())
+    f.close()
+    os.kill(pid, 9)
+    os.remove(".product_service.pid")
+
+def shutdown_order_service():
+    f = open(".order_service.pid", "r")
+    pid = int(f.read())
+    f.close()
+    os.kill(pid, 9)
+    os.remove(".order_service.pid")
+
+def shutdown_iscs_service():
+    f = open(".iscs_service.pid", "r")
+    pid = int(f.read())
+    f.close()
+    os.kill(pid, 9)
+    os.remove(".iscs_service.pid")
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:

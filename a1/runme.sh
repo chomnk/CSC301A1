@@ -30,16 +30,16 @@ compile() {
 start() {
     case $1 in
         -u)
-            java -cp "$USER_COMPILED:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.48.0.0.jar:./compiled/commons-codec-1.18.0.jar" Main "$CONFIG_FILE" &
+            java -cp "$USER_COMPILED:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.48.0.0.jar:./compiled/commons-codec-1.18.0.jar" Main "$CONFIG_FILE" & echo $! > "$BASE_DIR/.user_service.pid"
             ;;
         -p)
-            java -cp "$PRODUCT_COMPILED:./compiled/gson-2.12.0.jar:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.48.0.0.jar" Main "$CONFIG_FILE" &
+            java -cp "$PRODUCT_COMPILED:./compiled/gson-2.12.0.jar:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.48.0.0.jar" Main "$CONFIG_FILE" & echo $! > "$BASE_DIR/.product_service.pid"
             ;;
         -o)
-            java -cp "$ORDER_COMPILED:./compiled/json-20210307.jar" Main "$CONFIG_FILE" &
+            java -cp "$ORDER_COMPILED:./compiled/json-20210307.jar" Main "$CONFIG_FILE" & echo $! > "$BASE_DIR/.order_service.pid"
             ;;
         -i)
-            java -cp "$ISCS_COMPILED:./compiled/json-20210307.jar" Main "$CONFIG_FILE" &
+            java -cp "$ISCS_COMPILED:./compiled/json-20210307.jar" Main "$CONFIG_FILE" & echo $! > "$BASE_DIR/.iscs.pid"
             ;;
         -w)
             python3 "$BASE_DIR/workload_parser.py" "$2" &
