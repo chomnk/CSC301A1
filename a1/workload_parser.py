@@ -5,7 +5,7 @@ import os
 import sqlite3
 
 CONFIG_FILE = "config.json"
-FIRST_ORDER_COMMAND = True
+FIRST_COMMAND = True
 
 def safe_int(value, default = -4321):
     try:
@@ -56,6 +56,25 @@ def read_workload(file_path):
             if not line or line.startswith("#"):
                 continue
 
+            if FIRST_COMMAND:
+                if line != "restart":
+                    con = sqlite3.connect("./compiled/product.db")
+                    cur = con.cursor()
+                    cur.execute("DROP TABLE IF EXISTS product")
+                    cur.close()
+                    con.close()
+                    con = sqlite3.connect("./compiled/user.sqlite")
+                    cur = con.cursor()
+                    cur.execute("DROP TABLE IF EXISTS user")
+                    cur.close()
+                    con.close()
+                FIRST_COMMAND = False
+                continue
+
+            if line == "shutdown":
+                shutdown_all_services()
+                break
+
             parts = line.split()
 
             if len(parts) < 2:
@@ -69,25 +88,7 @@ def read_workload(file_path):
             elif entity == "PRODUCT":
                 handle_product_command(action, parts[2:])
             elif entity == "ORDER":
-                if FIRST_ORDER_COMMAND:
-                    if action != "restart":
-                        con = sqlite3.connect("./compiled/product.db")
-                        cur = con.cursor()
-                        cur.execute("DROP TABLE IF EXISTS product")
-                        cur.close()
-                        con.close()
-                        con = sqlite3.connect("./compiled/user.sqlite")
-                        cur = con.cursor()
-                        cur.execute("DROP TABLE IF EXISTS user")
-                        cur.close()
-                        con.close()
-                    FIRST_ORDER_COMMAND = False
-                    continue
                 handle_order_command(parts[2:])
-            elif entity == "shutdown":
-                pass
-            elif entity == "restart":
-                pass
             else:
                 print("Invalid Command.")
 
@@ -196,6 +197,12 @@ def shutdown_iscs_service():
     f.close()
     os.kill(pid, 9)
     os.remove(".iscs_service.pid")
+
+def shutdown_all_services():
+    shutdown_user_service()
+    shutdown_product_service()
+    shutdown_order_service()
+    shutdown_iscs_service()
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
