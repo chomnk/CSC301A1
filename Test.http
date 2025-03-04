@@ -1,11 +1,11 @@
 
 ### Create user
-POST http://localhost:14001/user
+POST http://localhost:14000/user
 Content-Type: application/json
 
 {
     "command": "create",
-    "id": 1000,
+    "id": 1,
     "username": "tester1000",
     "email": "test1000@test.com",
     "password": "password1000"
@@ -56,7 +56,7 @@ Content-Type: application/json
 }
 
 ### Get user
-GET http://localhost:14000/user/1
+GET http://localhost:14000/user/23823
 
 ### Create Product
 POST http://localhost:14000/product

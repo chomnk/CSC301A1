@@ -55,21 +55,33 @@ def read_workload(file_path):
             line = line.strip()
             if not line or line.startswith("#"):
                 continue
-
+            global FIRST_COMMAND
             if FIRST_COMMAND:
                 if line != "restart":
                     con = sqlite3.connect("./compiled/product.db")
                     cur = con.cursor()
-                    cur.execute("DROP TABLE IF EXISTS product")
+                    cur.execute("DROP TABLE IF EXISTS products")
+                    cur.execute("""CREATE TABLE IF NOT EXISTS products (
+                                        id INTEGER PRIMARY KEY,
+                                        productname VARCHAR(255),
+                                        description VARCHAR(255),
+                                        price FLOAT,
+                                        quantity INT
+                                        );""")
                     cur.close()
                     con.close()
                     con = sqlite3.connect("./compiled/user.sqlite")
                     cur = con.cursor()
                     cur.execute("DROP TABLE IF EXISTS user")
+                    cur.execute("""CREATE TABLE IF NOT EXISTS user (
+                                        id INTEGER PRIMARY KEY,
+                                        username VARCHAR(255),
+                                        email VARCHAR(225),
+                                        password CHAR(64)
+                                        )""")
                     cur.close()
                     con.close()
                 FIRST_COMMAND = False
-                continue
 
             if line == "shutdown":
                 shutdown_all_services()
@@ -192,11 +204,11 @@ def shutdown_order_service():
     os.remove(".order_service.pid")
 
 def shutdown_iscs_service():
-    f = open(".iscs_service.pid", "r")
+    f = open(".iscs.pid", "r")
     pid = int(f.read())
     f.close()
     os.kill(pid, 9)
-    os.remove(".iscs_service.pid")
+    os.remove(".iscs.pid")
 
 def shutdown_all_services():
     shutdown_user_service()
