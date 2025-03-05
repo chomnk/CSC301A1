@@ -14,6 +14,7 @@ import java.util.concurrent.Executors;
 import org.json.*;
 
 public class Main {
+    private static final String DB_URL = "jdbc:sqlite:./compiled/order.db";
     private static String iscsIP;
     private static int iscsPort;
     public static void main(String[] args) throws IOException {
@@ -25,17 +26,60 @@ public class Main {
         iscsIP = ((JSONObject) config.get("InterServiceCommunication")).getString("ip");
         iscsPort = ((JSONObject) config.get("InterServiceCommunication")).getInt("port");
 
+        initDatabase();
+
         HttpServer httpServer = HttpServer.create(new InetSocketAddress(port), 0);
         httpServer.setExecutor(Executors.newFixedThreadPool(20));
         httpServer.createContext("/order", new OrderHandler());
         httpServer.createContext("/user", new ProxyHandler());
         httpServer.createContext("/product", new ProxyHandler());
+
+        httpServer.createContext("/user/purchased", new PurchasedHandler());
+
         httpServer.setExecutor(null);
         httpServer.start();
         System.out.println("Order Service started on port " + port);
     }
 
+    private static void initDatabase() {
+        try (Connection conn = DriverManager.getConnection(DB_URL)) {
+            String createTableSQL = """
+                CREATE TABLE IF NOT EXISTS purchases (
+                    user_id INTEGER,
+                    product_id INTEGER,
+                    quantity INTEGER,
+                    PRIMARY KEY(user_id, product_id)
+                );
+            """;
+            try (Statement stmt = conn.createStatement()) {
+                stmt.execute(createTableSQL);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+    }
+
     static class OrderHandler implements HttpHandler {
+        private static void updatePurchaseRecord(int userId, int productId, int quantity) {
+            try (Connection conn = DriverManager.getConnection(DB_URL)) {
+                String sql = """
+            INSERT INTO purchases (user_id, product_id, quantity)
+            VALUES (?, ?, ?)
+            ON CONFLICT(user_id, product_id) DO UPDATE SET quantity = quantity + ?;
+        """;
+                try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                    stmt.setInt(1, userId);
+                    stmt.setInt(2, productId);
+                    stmt.setInt(3, quantity);
+                    stmt.setInt(4, quantity);
+                    stmt.executeUpdate();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
         @Override
         public void handle(HttpExchange exchange) throws IOException {
             if (exchange.getRequestMethod().equals("POST")) {
@@ -153,6 +197,8 @@ public class Main {
                         return;
                     }
 
+                    updatePurchaseRecord(userId, productId, quantity);
+
                     JSONObject response = new JSONObject();
                     response.put("status", "Success");
                     response.put("product_id", productId);
@@ -185,6 +231,79 @@ public class Main {
             return requestJSON.has("user_id") && requestJSON.has("product_id") && requestJSON.has("quantity")
                     && requestJSON.get("user_id") instanceof Integer && requestJSON.get("product_id") instanceof Integer
                     && requestJSON.get("quantity") instanceof Integer && requestJSON.getInt("quantity") > 0;
+        }
+    }
+
+    static class PurchasedHandler implements HttpHandler {
+        @Override
+        public void handle(HttpExchange exchange) throws IOException {
+            if (!exchange.getRequestMethod().equalsIgnoreCase("GET")) {
+                exchange.sendResponseHeaders(405, -1);
+                exchange.close();
+                return;
+            }
+
+            String path = exchange.getRequestURI().getPath();
+            String[] segments = path.split("/");
+            if (segments.length != 4) {
+                exchange.sendResponseHeaders(400, -1);
+                exchange.close();
+                return;
+            }
+
+            int userId;
+            try {
+                userId = Integer.parseInt(segments[3]);
+            } catch (NumberFormatException e) {
+                exchange.sendResponseHeaders(400, -1);
+                exchange.close();
+                return;
+            }
+
+            String userUrl = "http://" + iscsIP + ":" + iscsPort + "/user/" + userId;
+            HttpURLConnection userConnection;
+            try {
+                userConnection = (HttpURLConnection) new URI(userUrl).toURL().openConnection();
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+                exchange.sendResponseHeaders(500, -1);
+                return;
+            }
+            userConnection.setRequestMethod("GET");
+            int userResponseCode = userConnection.getResponseCode();
+            if (userResponseCode != 200) {
+                exchange.sendResponseHeaders(404, -1);
+                exchange.close();
+                return;
+            }
+
+            JSONObject responseJSON = new JSONObject();
+            try (Connection conn = DriverManager.getConnection(DB_URL)) {
+                String querySQL = "SELECT product_id, quantity FROM purchases WHERE user_id = ?";
+                try (PreparedStatement stmt = conn.prepareStatement(querySQL)) {
+                    stmt.setInt(1, userId);
+                    try (ResultSet rs = stmt.executeQuery()) {
+                        while (rs.next()) {
+                            int productId = rs.getInt("product_id");
+                            int qty = rs.getInt("quantity");
+                            responseJSON.put(String.valueOf(productId), qty);
+                        }
+                    }
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+                exchange.sendResponseHeaders(500, -1);
+                exchange.close();
+                return;
+            }
+
+            byte[] responseBytes = responseJSON.toString().getBytes(StandardCharsets.UTF_8);
+            exchange.getResponseHeaders().set("Content-Type", "application/json");
+            exchange.sendResponseHeaders(200, responseBytes.length);
+            try (OutputStream os = exchange.getResponseBody()) {
+                os.write(responseBytes);
+            }
+            exchange.close();
         }
     }
 
