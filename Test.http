@@ -137,3 +137,7 @@ Content-Type: application/json
 
 ###
 GET http://localhost:15000/product/2007
+
+
+###
+GET http://localhost:14000/user/purchased/3

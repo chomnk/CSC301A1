@@ -10,6 +10,7 @@ import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.sql.*;
 import java.util.concurrent.Executors;
 import org.json.*;
 
@@ -63,17 +64,21 @@ public class Main {
     static class OrderHandler implements HttpHandler {
         private static void updatePurchaseRecord(int userId, int productId, int quantity) {
             try (Connection conn = DriverManager.getConnection(DB_URL)) {
-                String sql = """
-            INSERT INTO purchases (user_id, product_id, quantity)
-            VALUES (?, ?, ?)
-            ON CONFLICT(user_id, product_id) DO UPDATE SET quantity = quantity + ?;
-        """;
-                try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-                    stmt.setInt(1, userId);
-                    stmt.setInt(2, productId);
-                    stmt.setInt(3, quantity);
-                    stmt.setInt(4, quantity);
-                    stmt.executeUpdate();
+                String updateSQL = "UPDATE purchases SET quantity = quantity + ? WHERE user_id = ? AND product_id = ?;";
+                try (PreparedStatement updateStmt = conn.prepareStatement(updateSQL)) {
+                    updateStmt.setInt(1, quantity);
+                    updateStmt.setInt(2, userId);
+                    updateStmt.setInt(3, productId);
+                    int rowsAffected = updateStmt.executeUpdate();
+                    if (rowsAffected == 0) {
+                        String insertSQL = "INSERT INTO purchases (user_id, product_id, quantity) VALUES (?, ?, ?);";
+                        try (PreparedStatement insertStmt = conn.prepareStatement(insertSQL)) {
+                            insertStmt.setInt(1, userId);
+                            insertStmt.setInt(2, productId);
+                            insertStmt.setInt(3, quantity);
+                            insertStmt.executeUpdate();
+                        }
+                    }
                 }
             } catch (SQLException e) {
                 e.printStackTrace();

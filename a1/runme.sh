@@ -36,7 +36,7 @@ start() {
             java -cp "$PRODUCT_COMPILED:./compiled/gson-2.12.0.jar:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.48.0.0.jar" Main "$CONFIG_FILE" & echo $! > "$BASE_DIR/.product_service.pid"
             ;;
         -o)
-            java -cp "$ORDER_COMPILED:./compiled/json-20210307.jar" Main "$CONFIG_FILE" & echo $! > "$BASE_DIR/.order_service.pid"
+            java -cp "$ORDER_COMPILED:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.48.0.0.jar" Main "$CONFIG_FILE" & echo $! > "$BASE_DIR/.order_service.pid"
             ;;
         -i)
             java -cp "$ISCS_COMPILED:./compiled/json-20210307.jar" Main "$CONFIG_FILE" & echo $! > "$BASE_DIR/.iscs.pid"

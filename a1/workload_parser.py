@@ -81,6 +81,19 @@ def read_workload(file_path):
                                         )""")
                     cur.close()
                     con.close()
+                    con = sqlite3.connect("./compiled/order.db")
+                    cur = con.cursor()
+                    cur.execute("DROP TABLE IF EXISTS purchases")
+                    cur.execute("""
+                        CREATE TABLE IF NOT EXISTS purchases (
+                            user_id INTEGER,
+                            product_id INTEGER,
+                            quantity INTEGER,
+                            PRIMARY KEY(user_id, product_id)
+                        );
+                    """)
+                    cur.close()
+                    con.close()
                 FIRST_COMMAND = False
 
             if line == "shutdown":
