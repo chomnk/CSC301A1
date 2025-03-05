@@ -14,10 +14,20 @@ import java.sql.*;
 import java.util.concurrent.Executors;
 import org.json.*;
 
+/**
+ * Main class to start the Order Service.
+ */
 public class Main {
     private static final String DB_URL = "jdbc:sqlite:./compiled/order.db";
     private static String iscsIP;
     private static int iscsPort;
+
+    /**
+     * Main method to start the server.
+     *
+     * @param args Command line arguments, expects the path to the configuration file.
+     * @throws IOException If an I/O error occurs.
+     */
     public static void main(String[] args) throws IOException {
         String configPath = args[0];
         JSONObject config = new JSONObject(new String(Files.readAllBytes(Paths.get(configPath))));
@@ -42,6 +52,9 @@ public class Main {
         System.out.println("Order Service started on port " + port);
     }
 
+    /**
+     * Initializes the database by creating the necessary tables.
+     */
     private static void initDatabase() {
         try (Connection conn = DriverManager.getConnection(DB_URL)) {
             String createTableSQL = """
@@ -61,7 +74,18 @@ public class Main {
         }
     }
 
+    /**
+     * Handles HTTP requests for order-related operations.
+     */
     static class OrderHandler implements HttpHandler {
+
+        /**
+         * Updates the purchase record in the database.
+         *
+         * @param userId    The ID of the user.
+         * @param productId The ID of the product.
+         * @param quantity  The quantity of the product.
+         */
         private static void updatePurchaseRecord(int userId, int productId, int quantity) {
             try (Connection conn = DriverManager.getConnection(DB_URL)) {
                 String updateSQL = "UPDATE purchases SET quantity = quantity + ? WHERE user_id = ? AND product_id = ?;";
@@ -232,6 +256,12 @@ public class Main {
             }
         }
 
+        /**
+         * Validates the request JSON.
+         *
+         * @param requestJSON The request JSON object.
+         * @return True if the request is valid, false otherwise.
+         */
         private boolean validRequest(JSONObject requestJSON) {
             return requestJSON.has("user_id") && requestJSON.has("product_id") && requestJSON.has("quantity")
                     && requestJSON.get("user_id") instanceof Integer && requestJSON.get("product_id") instanceof Integer
@@ -239,6 +269,9 @@ public class Main {
         }
     }
 
+    /**
+     * Handles HTTP requests for retrieving purchased products.
+     */
     static class PurchasedHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
@@ -312,6 +345,9 @@ public class Main {
         }
     }
 
+    /**
+     * Handles HTTP requests by proxying them to the appropriate service.
+     */
     static class ProxyHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
@@ -350,6 +386,13 @@ public class Main {
         }
     }
 
+    /**
+     * Reads the input stream and returns the content as a string.
+     *
+     * @param inputStream The input stream to read.
+     * @return The content of the input stream as a string.
+     * @throws IOException If an I/O error occurs.
+     */
     private static String readInputStream(InputStream inputStream) throws IOException {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
             StringBuilder response = new StringBuilder();
@@ -362,6 +405,13 @@ public class Main {
     }
 
     // copied from lecture code
+    /**
+     * Reads the request body from the exchange and returns it as a string.
+     *
+     * @param exchange The HTTP exchange.
+     * @return The request body as a string.
+     * @throws IOException If an I/O error occurs.
+     */
     private static String getRequestBody(HttpExchange exchange) throws IOException {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(exchange.getRequestBody(), StandardCharsets.UTF_8))) {
             StringBuilder requestBody = new StringBuilder();
@@ -373,6 +423,13 @@ public class Main {
         }
     }
 
+    /**
+     * Reads the request body from the exchange and returns it as a JSON object.
+     *
+     * @param exchange The HTTP exchange.
+     * @return The request body as a JSON object.
+     * @throws IOException If an I/O error occurs.
+     */
     private static JSONObject getJSONObject(HttpExchange exchange) throws IOException {
         return new JSONObject(getRequestBody(exchange));
     }

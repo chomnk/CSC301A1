@@ -13,12 +13,21 @@ import java.nio.file.Paths;
 import java.util.concurrent.Executors;
 import org.json.JSONObject;
 
+/**
+ * Main class to start the ISCS.
+ */
 public class Main {
     private static String userServiceIP;
     private static int userServicePort;
     private static String productServiceIP;
     private static int productServicePort;
 
+    /**
+     * Main method to start the server.
+     *
+     * @param args Command line arguments, expects the path to the configuration file.
+     * @throws IOException If an I/O error occurs.
+     */
     public static void main(String[] args) throws IOException {
         String configPath = args[0];
         JSONObject config = new JSONObject(new String(Files.readAllBytes(Paths.get(configPath))));
@@ -42,10 +51,19 @@ public class Main {
         server.start();
     }
 
+    /**
+     * Handles HTTP requests by proxying them to the appropriate service.
+     */
     static class ProxyHandler implements HttpHandler {
         private final String targetIP;
         private final int targetPort;
 
+        /**
+         * Constructor for ProxyHandler.
+         *
+         * @param targetIP The IP address of the target service.
+         * @param targetPort The port of the target service.
+         */
         public ProxyHandler(String targetIP, int targetPort) {
             this.targetIP = targetIP;
             this.targetPort = targetPort;
@@ -89,6 +107,13 @@ public class Main {
         }
     }
 
+    /**
+     * Reads the request body from the exchange and returns it as a string.
+     *
+     * @param exchange The HTTP exchange.
+     * @return The request body as a string.
+     * @throws IOException If an I/O error occurs.
+     */
     private static String getRequestBody(HttpExchange exchange) throws IOException {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(exchange.getRequestBody(), StandardCharsets.UTF_8))) {
             StringBuilder requestBody = new StringBuilder();
@@ -100,6 +125,13 @@ public class Main {
         }
     }
 
+    /**
+     * Reads the input stream and returns the content as a string.
+     *
+     * @param inputStream The input stream to read.
+     * @return The content of the input stream as a string.
+     * @throws IOException If an I/O error occurs.
+     */
     private static String readInputStream(InputStream inputStream) throws IOException {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
             StringBuilder response = new StringBuilder();

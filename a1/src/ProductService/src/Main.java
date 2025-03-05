@@ -31,9 +31,19 @@ import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Main class to start the Product Service.
+ */
 public class Main {
     private static final String DB_URL = "jdbc:sqlite:./compiled/product.db";
     private static Connection connection;
+
+    /**
+     * Main method to start the server.
+     *
+     * @param args Command line arguments, expects the path to the configuration file.
+     * @throws IOException If an I/O error occurs.
+     */
     public static void main(String[] args) throws IOException {
         String configPath = args[0];
         JSONObject config = new JSONObject(new String(Files.readAllBytes(Paths.get(configPath))));
@@ -54,6 +64,9 @@ public class Main {
         System.out.println("Server started on port " + port);
     }
 
+    /**
+     * Initializes the database by creating the necessary tables.
+     */
     private static void initDatabase() {
         try {
             connection = DriverManager.getConnection(DB_URL);
@@ -78,6 +91,9 @@ public class Main {
         }
     }
 
+    /**
+     * Handles HTTP requests for product-related operations.
+     */
     static class ProductHandler implements HttpHandler {
         private static final Gson gson = new Gson();
 
@@ -94,6 +110,12 @@ public class Main {
             }
         }
 
+        /**
+         * Handles HTTP POST requests.
+         *
+         * @param exchange The HTTP exchange.
+         * @throws IOException If an I/O error occurs.
+         */
         public void handlePost(HttpExchange exchange) throws IOException {
             JsonObject empty = new JsonObject();
             String emptyResponse = gson.toJson(empty);
@@ -178,6 +200,13 @@ public class Main {
             }
         }
 
+        /**
+         * Reads the request body from the exchange and returns it as a string.
+         *
+         * @param exchange The HTTP exchange.
+         * @return The request body as a string.
+         * @throws IOException If an I/O error occurs.
+         */
         private static String getRequestBody(HttpExchange exchange) throws IOException {
             try (BufferedReader br = new BufferedReader(new InputStreamReader(exchange.getRequestBody(), StandardCharsets.UTF_8))) {
                 StringBuilder requestBody = new StringBuilder();
@@ -189,6 +218,16 @@ public class Main {
             }
         }
 
+        /**
+         * Handles the "info" command to retrieve product information.
+         *
+         * @param exchange The HTTP exchange.
+         * @param id The product ID.
+         * @param name The product name.
+         * @param description The product description.
+         * @param price The product price.
+         * @param quantity The product quantity.
+         */
         private static void info(HttpExchange exchange, int id, String name, String description, double price, int quantity) {
             String sql = "SELECT description FROM products WHERE id = ?";
 
@@ -217,6 +256,16 @@ public class Main {
             }
         }
 
+        /**
+         * Handles the "create" command to create a new product.
+         *
+         * @param exchange The HTTP exchange.
+         * @param id The product ID.
+         * @param name The product name.
+         * @param description The product description.
+         * @param price The product price.
+         * @param quantity The product quantity.
+         */
         private static void create(HttpExchange exchange, Integer id, String name, String description, double price, int quantity) {
             String sql = "INSERT INTO products (id, productname, description, price, quantity) VALUES (?, ?, ?, ?, ?);";
             try (Connection conn = DriverManager.getConnection(DB_URL);
@@ -255,6 +304,16 @@ public class Main {
             }
         }
 
+        /**
+         * Handles the "update" command to update an existing product.
+         *
+         * @param exchange The HTTP exchange.
+         * @param id The product ID.
+         * @param productname The product name.
+         * @param description The product description.
+         * @param price The product price.
+         * @param quantity The product quantity.
+         */
         private static void update(HttpExchange exchange, int id, String productname, String description, Double price, Integer quantity) {
             JsonObject empty = new JsonObject();
             String emptyResponse = gson.toJson(empty);
@@ -321,6 +380,15 @@ public class Main {
             }
         }
 
+        /**
+         * Handles the "delete" command to delete an existing product.
+         *
+         * @param exchange The HTTP exchange.
+         * @param id The product ID.
+         * @param name The product name.
+         * @param price The product price.
+         * @param quantity The product quantity.
+         */
         private static void delete(HttpExchange exchange, int id, String name, Double price, Integer quantity) {
             String check_sql = "SELECT COUNT(*) FROM products WHERE id = ? AND productname = ? AND price = ? AND quantity = ?";
             String delete_sql = "DELETE FROM products WHERE id = ?";
@@ -370,6 +438,12 @@ public class Main {
             }
         }
 
+        /**
+         * Handles HTTP GET requests.
+         *
+         * @param exchange The HTTP exchange.
+         * @throws IOException If an I/O error occurs.
+         */
         public void handleGet(HttpExchange exchange) throws IOException {
             if ("GET".equalsIgnoreCase(exchange.getRequestMethod())) {
                 String requestURI = exchange.getRequestURI().toString();
@@ -421,17 +495,14 @@ public class Main {
         }
     }
 
-    /*
-    private static void sendResponse(HttpExchange exchange, int status, String response) throws IOException {
-        exchange.getResponseHeaders().set("Content-Type", "application/json");
-        exchange.sendResponseHeaders(status, response.length());
-        OutputStream os = exchange.getResponseBody();
-        os.write(response.getBytes(StandardCharsets.UTF_8));
-        os.close();
-    }
-    */
-
-
+    /**
+     * Sends a response to the client.
+     *
+     * @param exchange The HTTP exchange.
+     * @param status The HTTP status code.
+     * @param response The response body.
+     * @throws IOException If an I/O error occurs.
+     */
     private static void sendResponse(HttpExchange exchange, int status, String response) throws IOException {
         byte[] responseBytes = response.getBytes(StandardCharsets.UTF_8);
         exchange.getResponseHeaders().set("Content-Type", "application/json");

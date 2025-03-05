@@ -17,9 +17,19 @@ import java.sql.*;
 
 import java.util.concurrent.Executors;
 
+/**
+ * Main class to start the User Service.
+ */
 public class Main {
     private static final String DB_URL = "jdbc:sqlite:./compiled/user.sqlite";
     private static Connection connection;
+
+    /**
+     * Main method to start the server.
+     *
+     * @param args Command line arguments, expects the path to the configuration file.
+     * @throws IOException If an I/O error occurs.
+     */
     public static void main(String[] args) throws IOException{
         String configPath = args[0];
         JSONObject config = new JSONObject(new String(Files.readAllBytes(Paths.get(configPath))));
@@ -34,6 +44,9 @@ public class Main {
         System.out.println("User Service started on port " + port);
     }
 
+    /**
+     * Initializes the database by creating the necessary tables.
+     */
     private static void initDatabase() {
         try {
             connection = DriverManager.getConnection(DB_URL);
@@ -57,6 +70,9 @@ public class Main {
         }
     }
 
+    /**
+     * Handles HTTP requests for user-related operations.
+     */
     static class UserHandler implements HttpHandler {
 
         @Override
@@ -282,6 +298,13 @@ public class Main {
             }
         }
 
+        /**
+         * Returns the user data as JSON.
+         *
+         * @param exchange The HTTP exchange.
+         * @param id The user ID.
+         * @throws IOException If an I/O error occurs.
+         */
         private static void returnJson(HttpExchange exchange, int id) throws IOException {
             JSONObject responseJSON = getJsonByID(id);
 
@@ -300,6 +323,13 @@ public class Main {
         }
 
         // copied from lecture code
+        /**
+         * Reads the request body from the exchange and returns it as a string.
+         *
+         * @param exchange The HTTP exchange.
+         * @return The request body as a string.
+         * @throws IOException If an I/O error occurs.
+         */
         private static String getRequestBody(HttpExchange exchange) throws IOException {
             try (BufferedReader br = new BufferedReader(new InputStreamReader(exchange.getRequestBody(), StandardCharsets.UTF_8))) {
                 StringBuilder requestBody = new StringBuilder();
@@ -311,6 +341,13 @@ public class Main {
             }
         }
 
+        /**
+         * Reads the request body from the exchange and returns it as a JSON object.
+         *
+         * @param exchange The HTTP exchange.
+         * @return The request body as a JSON object.
+         * @throws IOException If an I/O error occurs.
+         */
         private static JSONObject getJSONObject(HttpExchange exchange) throws IOException {
             String requestBody = getRequestBody(exchange);
             try {
@@ -322,6 +359,12 @@ public class Main {
             }
         }
 
+        /**
+         * Validates the request JSON.
+         *
+         * @param requestJSON The request JSON object.
+         * @return True if the request is valid, false otherwise.
+         */
         private static boolean validRequest(JSONObject requestJSON) {
             if (!requestJSON.has("id") || !requestJSON.has("username") || !requestJSON.has("email") || !requestJSON.has("password")) {
                 return false;
@@ -337,6 +380,12 @@ public class Main {
             return true;
         }
 
+        /**
+         * Checks if a user ID already exists in the database.
+         *
+         * @param id The user ID.
+         * @return True if the user ID exists, false otherwise.
+         */
         private static boolean checkIdExist(int id) {
             String selectSQL = String.format("SELECT * FROM user WHERE id = %d;", id);
             try (Statement statement = connection.createStatement()) {
@@ -351,6 +400,12 @@ public class Main {
             return true;
         }
 
+        /**
+         * Retrieves the user data as a JSON object by ID.
+         *
+         * @param id The user ID.
+         * @return The user data as a JSON object, or null if not found.
+         */
         private static JSONObject getJsonByID(int id) {
             String selectSQL = String.format("SELECT * FROM user WHERE id = %d;", id);
             try (Statement statement = connection.createStatement()) {
