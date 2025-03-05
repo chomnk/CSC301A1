@@ -17,9 +17,24 @@ import org.json.JSONObject;
  * Main class to start the ISCS.
  */
 public class Main {
+    /**
+     * IP address of the User Service.
+     */
     private static String userServiceIP;
+
+    /**
+     * Port number of the User Service.
+     */
     private static int userServicePort;
+
+    /**
+     * IP address of the Product Service.
+     */
     private static String productServiceIP;
+
+    /**
+     * Port number of the Product Service.
+     */
     private static int productServicePort;
 
     /**
@@ -55,7 +70,14 @@ public class Main {
      * Handles HTTP requests by proxying them to the appropriate service.
      */
     static class ProxyHandler implements HttpHandler {
+        /**
+         * The IP address of the target service.
+         */
         private final String targetIP;
+
+        /**
+         * The port of the target service.
+         */
         private final int targetPort;
 
         /**

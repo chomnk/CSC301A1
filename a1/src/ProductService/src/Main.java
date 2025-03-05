@@ -35,7 +35,13 @@ import java.util.regex.Pattern;
  * Main class to start the Product Service.
  */
 public class Main {
+    /**
+     * URL for the SQLite database.
+     */
     private static final String DB_URL = "jdbc:sqlite:./compiled/product.db";
+    /**
+     * Connection to the SQLite database.
+     */
     private static Connection connection;
 
     /**
@@ -95,6 +101,9 @@ public class Main {
      * Handles HTTP requests for product-related operations.
      */
     static class ProductHandler implements HttpHandler {
+        /**
+         * Gson instance for JSON operations.
+         */
         private static final Gson gson = new Gson();
 
         @Override

@@ -21,7 +21,14 @@ import java.util.concurrent.Executors;
  * Main class to start the User Service.
  */
 public class Main {
+    /**
+     * URL for the SQLite database.
+     */
     private static final String DB_URL = "jdbc:sqlite:./compiled/user.sqlite";
+
+    /**
+     * Connection to the SQLite database.
+     */
     private static Connection connection;
 
     /**

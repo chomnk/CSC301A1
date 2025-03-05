@@ -18,8 +18,19 @@ import org.json.*;
  * Main class to start the Order Service.
  */
 public class Main {
+    /**
+     * URL for the SQLite database.
+     */
     private static final String DB_URL = "jdbc:sqlite:./compiled/order.db";
+
+    /**
+     * IP address for the Inter-Service Communication System (ISCS).
+     */
     private static String iscsIP;
+
+    /**
+     * Port number for the Inter-Service Communication System (ISCS).
+     */
     private static int iscsPort;
 
     /**
