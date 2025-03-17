@@ -1,0 +1,3455 @@
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
+
+USER create 10 usernameXJDklsa email10@example.com password1234
+PRODUCT create 20 productABC "A sample product" 19.99 100
+ORDER place 20 10 2
+USER get 10
+PRODUCT info 20
+USER update 10 username:newUserXJD email:newemail10@example.com password:newPass123
+PRODUCT update 20 name:productXYZ description:"Updated description" price:24.99 quantity:90
+ORDER place 20 10 1
+USER get 10
+USER delete 10 newUserXJD newemail10@example.com newPass123
+PRODUCT delete 20 productXYZ 24.99 90
+
+USER create 11 usernameYHJshq email11@example.com password5678
+PRODUCT create 21 productDEF "Another product" 29.99 50
+ORDER place 21 11 3
+USER get 11
+PRODUCT info 21
+USER update 11 username:newUserYHJ email:newemail11@example.com password:newPass567
+PRODUCT update 21 name:productLMN description:"Updated desc" price:34.99 quantity:40
+ORDER place 21 11 2
+USER get 11
+USER delete 11 newUserYHJ newemail11@example.com newPass567
+PRODUCT delete 21 productLMN 34.99 40
+
+USER create 12 usernameZKLoqp email12@example.com password91011
+PRODUCT create 22 productGHI "Yet another product" 39.99 30
+ORDER place 22 12 4
+USER get 12
+PRODUCT info 22
+USER update 12 username:newUserZKL email:newemail12@example.com password:newPass910
+PRODUCT update 22 name:productPQR description:"Updated description" price:44.99 quantity:20
+ORDER place 22 12 1
+USER get 12
+USER delete 12 newUserZKL newemail12@example.com newPass910
+PRODUCT delete 22 productPQR 44.99 20
+
+USER create 13 usernameJKLqwe email13@example.com password1213
+PRODUCT create 23 productSTU "Exclusive product" 49.99 25
+ORDER place 23 13 2
+USER get 13
+PRODUCT info 23
+USER update 13 username:newUserJKL email:newemail13@example.com password:newPass1213
+PRODUCT update 23 name:productVWX description:"Special edition" price:54.99 quantity:15
+ORDER place 23 13 3
+USER get 13
+USER delete 13 newUserJKL newemail13@example.com newPass1213
+PRODUCT delete 23 productVWX 54.99 15
+
+USER create 14 usernameMNOprq email14@example.com password1415
+PRODUCT create 24 productYZA "High-end gadget" 59.99 10
+ORDER place 24 14 1
+USER get 14
+PRODUCT info 24
+USER update 14 username:newUserMNO email:newemail14@example.com password:newPass1415
+PRODUCT update 24 name:productBCD description:"Luxury model" price:64.99 quantity:5
+ORDER place 24 14 2
+USER get 14
+USER delete 14 newUserMNO newemail14@example.com newPass1415
+PRODUCT delete 24 productBCD 64.99 5
+
+USER create 15 usernamePQRstu email15@example.com password1617
+PRODUCT create 25 productEFG "Limited edition item" 69.99 20
+ORDER place 25 15 5
+USER get 15
+PRODUCT info 25
+USER update 15 username:newUserPQR email:newemail15@example.com password:newPass1617
+PRODUCT update 25 name:productHIJ description:"Collector's edition" price:74.99 quantity:10
+ORDER place 25 15 2
+USER get 15
+USER delete 15 newUserPQR newemail15@example.com newPass1617
+PRODUCT delete 25 productHIJ 74.99 10
+
+USER create 16 usernameXYZabc email16@example.com password1819
+PRODUCT create 26 productKLM "Special gadget" 79.99 15
+ORDER place 26 16 3
+USER get 16
+PRODUCT info 26
+USER update 16 username:newUserXYZ email:newemail16@example.com password:newPass1819
+PRODUCT update 26 name:productNOP description:"Enhanced version" price:84.99 quantity:10
+ORDER place 26 16 2
+USER get 16
+USER delete 16 newUserXYZ newemail16@example.com newPass1819
+PRODUCT delete 26 productNOP 84.99 10
+
+USER create 17 usernameLMNopq email17@example.com password2021
+PRODUCT create 27 productQRS "Gaming accessory" 89.99 30
+ORDER place 27 17 4
+USER get 17
+PRODUCT info 27
+USER update 17 username:newUserLMN email:newemail17@example.com password:newPass2021
+PRODUCT update 27 name:productTUV description:"Pro edition" price:94.99 quantity:20
+ORDER place 27 17 3
+USER get 17
+USER delete 17 newUserLMN newemail17@example.com newPass2021
+PRODUCT delete 27 productTUV 94.99 20
+
+USER create 18 usernameRSTuvw email18@example.com password2223
+PRODUCT create 28 productWXY "Smart device" 99.99 50
+ORDER place 28 18 5
+USER get 18
+PRODUCT info 28
+USER update 18 username:newUserRST email:newemail18@example.com password:newPass2223
+PRODUCT update 28 name:productZAB description:"Updated model" price:104.99 quantity:40
+ORDER place 28 18 2
+USER get 18
+USER delete 18 newUserRST newemail18@example.com newPass2223
+PRODUCT delete 28 productZAB 104.99 40
