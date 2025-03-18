@@ -40,9 +40,24 @@ public class Main {
      * @throws IOException If an I/O error occurs.
      */
     public static void main(String[] args) throws IOException {
+        if (args.length < 2) {
+            System.err.println("Usage: java Main <configFile> <instanceIndex>");
+            System.exit(1);
+        }
+
         String configPath = args[0];
+        int instanceIndex = Integer.parseInt(args[1]);
+
         JSONObject config = new JSONObject(new String(Files.readAllBytes(Paths.get(configPath))));
-        JSONObject orderConfig = (JSONObject) config.get("OrderService");
+        //JSONObject orderConfig = (JSONObject) config.get("OrderService");
+        //int port = orderConfig.getInt("port");
+
+        JSONArray orderServices = config.getJSONArray("OrderService");
+        if (instanceIndex >= orderServices.length()) {
+            System.err.println("Invalid instance index");
+            System.exit(1);
+        }
+        JSONObject orderConfig = orderServices.getJSONObject(instanceIndex);
         int port = orderConfig.getInt("port");
 
         iscsIP = ((JSONObject) config.get("InterServiceCommunication")).getString("ip");

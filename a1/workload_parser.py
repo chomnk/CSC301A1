@@ -33,7 +33,11 @@ def read_Order_URL():
 
 Order_URL = read_Order_URL()
 
+counter = 1
+
 def send_request(method, endpoint, data=None):
+    global counter
+
     url = f"{Order_URL}{endpoint}"
 
     try:
@@ -44,7 +48,9 @@ def send_request(method, endpoint, data=None):
             response = requests.post(url, json=data, headers=headers)
 
         print(f"Request: {method} {url} - Data: {data}")
-        print(f"Response: {response.status_code} - {response.text}")
+        #print(f"Response: {response.status_code} - {response.text}")
+        print(f"{counter}: {response.status_code}")
+        counter += 1
 
     except requests.exceptions.RequestException as e:
         print(f"ERROR on {url}.")
