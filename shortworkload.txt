@@ -1,0 +1,11 @@
+USER create 100 username100 email100@example.com password100
+PRODUCT create 200 product200 "Description for product 200" 34.66 82
+ORDER place 200 100 8
+USER get 100
+PRODUCT info 200
+USER update 100 username:newUser100 email:newEmail100@example.com password:newPass100
+PRODUCT update 200 name:productNew100 description:"Updated description 200" price:48.76 quantity:80
+ORDER place 200 100 2
+USER get 100
+USER delete 100 newUser100 newEmail100@example.com newPass100
+PRODUCT delete 200 productNew100 48.76 80

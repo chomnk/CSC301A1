@@ -3,6 +3,7 @@ import requests
 import json
 import os
 import sqlite3
+import shlex
 
 CONFIG_FILE = "config.json"
 FIRST_COMMAND = True
@@ -26,8 +27,8 @@ def read_Order_URL():
     with open(CONFIG_FILE, "r") as f:
         config = json.load(f)
 
-    order_ip = config["OrderService"]["ip"]
-    order_port = config["OrderService"]["port"]
+    order_ip = "127.0.0.1" #config["OrderService"]["ip"]
+    order_port = 3000 #config["OrderService"]["port"]
 
     return f"http://{order_ip}:{order_port}"
 
@@ -106,7 +107,7 @@ def read_workload(file_path):
                 shutdown_all_services()
                 break
 
-            parts = line.split()
+            parts = shlex.split(line)
 
             if len(parts) < 2:
                 continue
@@ -171,12 +172,12 @@ def handle_product_command(action, args):
         send_request("POST", endpoint, data)
 
     elif action == "delete":
-        product_id, name, description, price, quantity = (args + [""] * 5)[:5]
+        product_id, name, price, quantity = (args + [""] * 4)[:4]
 
         if safe_int(quantity) != safe_float(quantity):
             quantity = ""
 
-        data = {"command": "delete", "id": safe_int(product_id), "name": name, "description": description, "price": safe_float(price), "quantity": safe_int(quantity)}
+        data = {"command": "delete", "id": safe_int(product_id), "name": name, "price": safe_float(price), "quantity": safe_int(quantity)}
         send_request("POST", endpoint, data)
 
     elif action == "info":

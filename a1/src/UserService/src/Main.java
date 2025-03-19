@@ -256,7 +256,7 @@ public class Main {
                     String email = requestJSON.getString("email");
                     String password = requestJSON.getString("password");
 
-                    String hashedPassword = DigestUtils.sha256Hex(password);
+                    String hashedPassword = DigestUtils.sha256Hex(password).toUpperCase();
 
                     String checkSQL = String.format(
                         "SELECT * FROM user WHERE id = %d AND username = '%s' AND email = '%s' AND password = '%s';",

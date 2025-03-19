@@ -104,12 +104,11 @@ async def async_handle_product_command(action, args):
         data = {"command": "update", "id": safe_int(product_id), **updates}
         await async_send_request("POST", endpoint, data)
     elif action == "delete":
-        product_id, name, description, price, quantity = (args + [""] * 5)[:5]
+        product_id, name, price, quantity = (args + [""] * 4)[:4]
         data = {
             "command": "delete",
             "id": safe_int(product_id),
             "name": name,
-            "description": description,
             "price": safe_float(price),
             "quantity": safe_int(quantity)
         }
