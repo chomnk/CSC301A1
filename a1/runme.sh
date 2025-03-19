@@ -75,8 +75,8 @@ start() {
             java -cp "$LOAD_BALANCER_COMPILED:./compiled/json-20210307.jar" Main "$LB_IP" "$LB_PORT" & echo $! > "$BASE_DIR/.load_balancer.pid"
             ;;
         -w)
-            #python3 "$BASE_DIR/workload_parser.py" "$2" &
-            python3 "$BASE_DIR/workload_parser_vanilla.py" "$2" "6000" &
+            python3 "$BASE_DIR/workload_parser.py" "$2" &
+            #python3 "$BASE_DIR/workload_parser_vanilla.py" "$2" "6000" &
             ;;
         *)
             echo "ERROR Format: $1"

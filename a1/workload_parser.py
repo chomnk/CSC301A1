@@ -4,6 +4,7 @@ import json
 import os
 import sqlite3
 import shlex
+import time
 
 CONFIG_FILE = "config.json"
 FIRST_COMMAND = True
@@ -241,4 +242,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     workload_file = sys.argv[1]
+    start_time = time.time()
     read_workload(workload_file)
+    end_time = time.time()
+    print(f"Took {end_time - start_time:.2f} seconds")
