@@ -31,7 +31,7 @@ def read_order_url():
 
 # Set the order service URL (from config or you can hardcode it)
 #ORDER_URL = read_order_url()
-ORDER_URL = 'http://127.0.0.1:3000'
+ORDER_URL = 'http://142.1.114.77:3000'
 
 # --- Synchronous request function ---
 def send_request(method, endpoint, data=None):
