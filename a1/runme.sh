@@ -36,7 +36,7 @@ start() {
         -u)
             #java -cp "$USER_COMPILED:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.48.0.0.jar:./compiled/commons-codec-1.18.0.jar" Main "$CONFIG_FILE" & echo $! > "$BASE_DIR/.user_service.pid"
             #;;
-            NUM_USER_INSTANCES=30  # Adjust based on your config
+            NUM_USER_INSTANCES=50  # Adjust based on your config
             for i in $(seq 0 $((NUM_USER_INSTANCES - 1))); do
                 java -cp "$USER_COMPILED:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.48.0.0.jar:./compiled/commons-codec-1.18.0.jar" Main "$CONFIG_FILE" "$i" &
                 echo $! >> "$BASE_DIR/.user_service.pid"
@@ -45,7 +45,7 @@ start() {
         -p)
             #java -cp "$PRODUCT_COMPILED:./compiled/gson-2.12.0.jar:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.48.0.0.jar" Main "$CONFIG_FILE" & echo $! > "$BASE_DIR/.product_service.pid"
             #;;
-            NUM_PRODUCT_INSTANCES=30  # Adjust based on your config
+            NUM_PRODUCT_INSTANCES=50  # Adjust based on your config
             for i in $(seq 0 $((NUM_PRODUCT_INSTANCES - 1))); do
                 java -cp "$PRODUCT_COMPILED:./compiled/gson-2.12.0.jar:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.48.0.0.jar" Main "$CONFIG_FILE" "$i" &
                 echo $! >> "$BASE_DIR/.product_service.pid"
@@ -56,7 +56,7 @@ start() {
             #;;
 
             # Start all OrderService instances (assumed 6 instances)
-            NUM_INSTANCES=20
+            NUM_INSTANCES=50
             for i in $(seq 0 $((NUM_INSTANCES - 1))); do
                 java -cp "$ORDER_COMPILED:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.48.0.0.jar" Main "$CONFIG_FILE" "$i" &
                 echo $! >> "$BASE_DIR/.order_service.pid"
