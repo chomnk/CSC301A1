@@ -34,17 +34,29 @@ compile() {
 start() {
     case $1 in
         -u)
-            java -cp "$USER_COMPILED:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.48.0.0.jar:./compiled/commons-codec-1.18.0.jar" Main "$CONFIG_FILE" & echo $! > "$BASE_DIR/.user_service.pid"
+            #java -cp "$USER_COMPILED:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.48.0.0.jar:./compiled/commons-codec-1.18.0.jar" Main "$CONFIG_FILE" & echo $! > "$BASE_DIR/.user_service.pid"
+            #;;
+            NUM_USER_INSTANCES=30  # Adjust based on your config
+            for i in $(seq 0 $((NUM_USER_INSTANCES - 1))); do
+                java -cp "$USER_COMPILED:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.48.0.0.jar:./compiled/commons-codec-1.18.0.jar" Main "$CONFIG_FILE" "$i" &
+                echo $! >> "$BASE_DIR/.user_service.pid"
+            done
             ;;
         -p)
-            java -cp "$PRODUCT_COMPILED:./compiled/gson-2.12.0.jar:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.48.0.0.jar" Main "$CONFIG_FILE" & echo $! > "$BASE_DIR/.product_service.pid"
+            #java -cp "$PRODUCT_COMPILED:./compiled/gson-2.12.0.jar:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.48.0.0.jar" Main "$CONFIG_FILE" & echo $! > "$BASE_DIR/.product_service.pid"
+            #;;
+            NUM_PRODUCT_INSTANCES=30  # Adjust based on your config
+            for i in $(seq 0 $((NUM_PRODUCT_INSTANCES - 1))); do
+                java -cp "$PRODUCT_COMPILED:./compiled/gson-2.12.0.jar:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.48.0.0.jar" Main "$CONFIG_FILE" "$i" &
+                echo $! >> "$BASE_DIR/.product_service.pid"
+            done
             ;;
         -o)
             #java -cp "$ORDER_COMPILED:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.48.0.0.jar" Main "$CONFIG_FILE" & echo $! > "$BASE_DIR/.order_service.pid"
             #;;
 
-            # Start all OrderService instances (assumed 3 instances)
-            NUM_INSTANCES=3
+            # Start all OrderService instances (assumed 6 instances)
+            NUM_INSTANCES=20
             for i in $(seq 0 $((NUM_INSTANCES - 1))); do
                 java -cp "$ORDER_COMPILED:./compiled/json-20210307.jar:./compiled/sqlite-jdbc-3.48.0.0.jar" Main "$CONFIG_FILE" "$i" &
                 echo $! >> "$BASE_DIR/.order_service.pid"
@@ -63,7 +75,7 @@ start() {
             java -cp "$LOAD_BALANCER_COMPILED:./compiled/json-20210307.jar" Main "$LB_IP" "$LB_PORT" & echo $! > "$BASE_DIR/.load_balancer.pid"
             ;;
         -w)
-            python3 "$BASE_DIR/workload_parser_vanilla.py" "$2" &
+            python3 "$BASE_DIR/workload_parser_vanilla.py" "$2" "6000" &
             ;;
         *)
             echo "ERROR Format: $1"

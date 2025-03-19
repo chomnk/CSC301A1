@@ -9,6 +9,7 @@ import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.nio.charset.StandardCharsets;
 import org.json.*;
+import org.json.JSONArray;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import java.nio.file.Files;
@@ -39,10 +40,24 @@ public class Main {
      */
     public static void main(String[] args) throws IOException{
         String configPath = args[0];
+        //JSONObject config = new JSONObject(new String(Files.readAllBytes(Paths.get(configPath))));
+        //JSONObject orderConfig = (JSONObject) config.get("UserService");
+        //int port = orderConfig.getInt("port");
+
         JSONObject config = new JSONObject(new String(Files.readAllBytes(Paths.get(configPath))));
-        JSONObject orderConfig = (JSONObject) config.get("UserService");
-        int port = orderConfig.getInt("port");
-        
+
+        // Read UserService as an array
+        JSONArray userServices = config.getJSONArray("UserService");
+
+        // Use an instance index provided as a second argument (default to 0 if not provided)
+        int instanceIndex = args.length > 1 ? Integer.parseInt(args[1]) : 0;
+        if (instanceIndex < 0 || instanceIndex >= userServices.length()) {
+            System.err.println("Invalid instance index for UserService");
+            System.exit(1);
+        }
+        JSONObject userConfig = userServices.getJSONObject(instanceIndex);
+        int port = userConfig.getInt("port");
+
         initDatabase();
         HttpServer httpServer = HttpServer.create(new InetSocketAddress(port), 0);
         httpServer.setExecutor(Executors.newFixedThreadPool(20));

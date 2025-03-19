@@ -23,7 +23,10 @@ public class Main {
     private static final List<String> BACKEND_SERVERS = Arrays.asList(
             "http://127.0.0.1:14000",
             "http://127.0.0.1:14010",
-            "http://127.0.0.1:14020"
+            "http://127.0.0.1:14020",
+            "http://127.0.0.1:14030",
+            "http://127.0.0.1:14040",
+            "http://127.0.0.1:14050"
     );
 
     // Atomic counter for round-robin selection.

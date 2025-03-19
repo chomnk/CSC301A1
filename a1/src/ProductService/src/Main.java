@@ -25,6 +25,7 @@ import java.sql.ResultSet;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import org.json.JSONObject;
+import org.json.JSONArray;
 
 import java.sql.SQLException;
 
@@ -52,9 +53,23 @@ public class Main {
      */
     public static void main(String[] args) throws IOException {
         String configPath = args[0];
+        //JSONObject config = new JSONObject(new String(Files.readAllBytes(Paths.get(configPath))));
+        //JSONObject orderConfig = (JSONObject) config.get("ProductService");
+        //int port = orderConfig.getInt("port");
+
         JSONObject config = new JSONObject(new String(Files.readAllBytes(Paths.get(configPath))));
-        JSONObject orderConfig = (JSONObject) config.get("ProductService");
-        int port = orderConfig.getInt("port");
+
+        // Read ProductService as a JSON array
+        JSONArray productServices = config.getJSONArray("ProductService");
+
+        // Use an instance index provided as a second argument (default to 0 if not provided)
+        int instanceIndex = args.length > 1 ? Integer.parseInt(args[1]) : 0;
+        if (instanceIndex < 0 || instanceIndex >= productServices.length()) {
+            System.err.println("Invalid instance index for ProductService");
+            System.exit(1);
+        }
+        JSONObject productConfig = productServices.getJSONObject(instanceIndex);
+        int port = productConfig.getInt("port");
         initDatabase();
 
         HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);

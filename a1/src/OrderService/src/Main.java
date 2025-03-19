@@ -14,6 +14,10 @@ import java.sql.*;
 import java.util.concurrent.Executors;
 import org.json.*;
 
+import java.util.List;
+import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * Main class to start the Order Service.
  */
@@ -23,15 +27,27 @@ public class Main {
      */
     private static final String DB_URL = "jdbc:sqlite:./compiled/order.db";
 
-    /**
-     * IP address for the Inter-Service Communication System (ISCS).
-     */
-    private static String iscsIP;
+    private static String userIP;
+    private static int userPort;
 
-    /**
-     * Port number for the Inter-Service Communication System (ISCS).
-     */
-    private static int iscsPort;
+    private static String productIP;
+    private static int productPort;
+
+    static class ServiceInstance {
+        String ip;
+        int port;
+        public ServiceInstance(String ip, int port) {
+            this.ip = ip;
+            this.port = port;
+        }
+    }
+
+    static List<ServiceInstance> userInstances = new ArrayList<>();
+    static List<ServiceInstance> productInstances = new ArrayList<>();
+    static AtomicInteger userIndex = new AtomicInteger(0);
+    static AtomicInteger productIndex = new AtomicInteger(0);
+
+
 
     /**
      * Main method to start the server.
@@ -60,18 +76,24 @@ public class Main {
         JSONObject orderConfig = orderServices.getJSONObject(instanceIndex);
         int port = orderConfig.getInt("port");
 
-        iscsIP = ((JSONObject) config.get("InterServiceCommunication")).getString("ip");
-        iscsPort = ((JSONObject) config.get("InterServiceCommunication")).getInt("port");
+        userIP = "http://127.0.0.1";
+        userPort = 3001;
+
+        productIP = "http://127.0.0.1";
+        productPort = 3002;
 
         initDatabase();
 
         HttpServer httpServer = HttpServer.create(new InetSocketAddress(port), 0);
         httpServer.setExecutor(Executors.newFixedThreadPool(20));
         httpServer.createContext("/order", new OrderHandler());
-        httpServer.createContext("/user", new ProxyHandler());
-        httpServer.createContext("/product", new ProxyHandler());
+        //httpServer.createContext("/user", new ProxyHandler());
+        //httpServer.createContext("/product", new ProxyHandler());
 
         httpServer.createContext("/user/purchased", new PurchasedHandler());
+
+        httpServer.createContext("/user", new DirectProxyHandler());
+        httpServer.createContext("/product", new DirectProxyHandler());
 
         httpServer.setExecutor(null);
         httpServer.start();
@@ -99,6 +121,64 @@ public class Main {
             System.exit(1);
         }
     }
+
+
+
+    /**
+     * Handles HTTP requests by proxying them to the appropriate service.
+     */
+    static class DirectProxyHandler implements HttpHandler {
+        @Override
+        public void handle(HttpExchange exchange) throws IOException {
+            String path = exchange.getRequestURI().getPath();
+            String targetUrl;
+            if (path.startsWith("/user")) {
+                targetUrl = "http://" + userIP + ":" + userPort + path;
+            } else if (path.startsWith("/product")) {
+                targetUrl = "http://" + productIP + ":" + productPort + path;
+            } else {
+                exchange.sendResponseHeaders(404, -1);
+                exchange.close();
+                return;
+            }
+
+            HttpURLConnection connection;
+            try {
+                connection = (HttpURLConnection) new URI(targetUrl).toURL().openConnection();
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+                exchange.sendResponseHeaders(500, -1);
+                exchange.close();
+                return;
+            }
+
+            // Forward the request method and body, if applicable.
+            connection.setRequestMethod(exchange.getRequestMethod());
+            if ("POST".equalsIgnoreCase(exchange.getRequestMethod())) {
+                connection.setDoOutput(true);
+                try (OutputStream outputStream = connection.getOutputStream()) {
+                    outputStream.write(getRequestBody(exchange).getBytes(StandardCharsets.UTF_8));
+                }
+            }
+
+            int responseCode = connection.getResponseCode();
+            exchange.sendResponseHeaders(responseCode, 0);
+            if (connection.getContentLength() != 0) {
+                String responseMessage = (responseCode >= 200 && responseCode < 400)
+                        ? readInputStream(connection.getInputStream())
+                        : readInputStream(connection.getErrorStream());
+                try (OutputStream os = exchange.getResponseBody()) {
+                    os.write(responseMessage.getBytes(StandardCharsets.UTF_8));
+                }
+            }
+            exchange.close();
+        }
+    }
+
+
+
+
+
 
     /**
      * Handles HTTP requests for order-related operations.
@@ -169,9 +249,8 @@ public class Main {
                         }
                     }
 
-                    String iscsUrl = "http://" + iscsIP + ":" + iscsPort;
-                    String userUrl = iscsUrl + "/user/" + userId;
-                    String productUrl = iscsUrl + "/product/" + productId;
+                    String userUrl = "http://" + userIP + ":" + userPort + "/user/" + userId;
+                    String productUrl = "http://" + productIP + ":" + productPort + "/product/" + productId;
 
                     HttpURLConnection userConnection = null;
                     try {
@@ -224,7 +303,8 @@ public class Main {
                         }
                     }
 
-                    String productUpdateUrl = iscsUrl + "/product";
+                    //String productUpdateUrl = iscsUrl + "/product";
+                    String productUpdateUrl = "http://" + productIP + ":" + productPort + "/product/";
                     HttpURLConnection productUpdateConnection = null;
                     try {
                         productUpdateConnection = (HttpURLConnection) new URI(productUpdateUrl).toURL().openConnection();
@@ -324,7 +404,7 @@ public class Main {
                 return;
             }
 
-            String userUrl = "http://" + iscsIP + ":" + iscsPort + "/user/" + userId;
+            String userUrl = "http://" + userIP + ":" + userPort + "/user/" + userId;
             HttpURLConnection userConnection;
             try {
                 userConnection = (HttpURLConnection) new URI(userUrl).toURL().openConnection();
@@ -366,47 +446,6 @@ public class Main {
             exchange.sendResponseHeaders(200, responseBytes.length);
             try (OutputStream os = exchange.getResponseBody()) {
                 os.write(responseBytes);
-            }
-            exchange.close();
-        }
-    }
-
-    /**
-     * Handles HTTP requests by proxying them to the appropriate service.
-     */
-    static class ProxyHandler implements HttpHandler {
-        @Override
-        public void handle(HttpExchange exchange) throws IOException {
-            String targetUrl = "http://" + iscsIP + ":" + iscsPort + exchange.getRequestURI().getPath();
-
-            HttpURLConnection connection = null;
-            try {
-                connection = (HttpURLConnection) new URI(targetUrl).toURL().openConnection();
-            } catch (URISyntaxException e) {
-                e.printStackTrace();
-                exchange.sendResponseHeaders(500, -1);
-            }
-            if (connection == null) {
-                exchange.sendResponseHeaders(500, -1);
-                return;
-            }
-            connection.setRequestMethod(exchange.getRequestMethod());
-
-            if (exchange.getRequestMethod().equalsIgnoreCase("POST")) {
-                connection.setDoOutput(true);
-                try (OutputStream outputStream = connection.getOutputStream()) {
-                    outputStream.write(getRequestBody(exchange).getBytes(StandardCharsets.UTF_8));
-                }
-            }
-
-            int responseCode = connection.getResponseCode();
-            exchange.sendResponseHeaders(responseCode, 0);
-
-            if (connection.getContentLength() != 0) {
-                String responseMessage = responseCode >= 200 && responseCode < 400 ? readInputStream(connection.getInputStream()) : readInputStream(connection.getErrorStream());
-                try (OutputStream os = exchange.getResponseBody()) {
-                    os.write(responseMessage.getBytes(StandardCharsets.UTF_8));
-                }
             }
             exchange.close();
         }

@@ -1,13 +1,12 @@
 import sys
-import requests
-import json
-import os
-import time
-import shlex
 import asyncio
+import shlex
+import time
+import os
+import json
+import requests
 
-CONFIG_FILE = "config.json"
-
+# --- Utility functions ---
 def safe_int(value, default=-4321):
     try:
         return int(value)
@@ -20,38 +19,40 @@ def safe_float(value, default=-43.21):
     except (ValueError, TypeError):
         return default
 
-def read_Order_URL():
-    if not os.path.exists(CONFIG_FILE):
+def read_order_url():
+    config_file = "config.json"
+    if not os.path.exists(config_file):
         raise FileNotFoundError("Config File Not Found.")
-    with open(CONFIG_FILE, "r") as f:
+    with open(config_file, "r") as f:
         config = json.load(f)
-    order_ip = config["OrderService"]["ip"]
-    order_port = config["OrderService"]["port"]
+    order_ip = config["OrderService"][0]["ip"]
+    order_port = config["OrderService"][0]["port"]
     return f"http://{order_ip}:{order_port}"
 
-#Order_URL = read_Order_URL()
-Order_URL = 'http://127.0.0.1:3000'
+# Set the order service URL (from config or you can hardcode it)
+#ORDER_URL = read_order_url()
+ORDER_URL = 'http://127.0.0.1:3000'
 
-# Synchronous send_request remains the same.
+# --- Synchronous request function ---
 def send_request(method, endpoint, data=None):
-    url = f"{Order_URL}{endpoint}"
+    url = f"{ORDER_URL}{endpoint}"
     try:
         if method == "GET":
             response = requests.get(url)
         else:
             headers = {"Content-Type": "application/json"}
             response = requests.post(url, json=data, headers=headers)
-        # Optionally, you could print response.status_code here
+        # Print status code for debugging
+        #print(f"{method} {url} -> {response.status_code}")
     except requests.exceptions.RequestException as e:
-        print(e)
-        print(f"ERROR on {url}.")
+        print(f"ERROR on {url}: {e}")
 
-# Asynchronous wrapper for send_request
+# --- Async wrapper ---
 async def async_send_request(method, endpoint, data=None):
     loop = asyncio.get_running_loop()
     await loop.run_in_executor(None, send_request, method, endpoint, data)
 
-# Async versions of the handler functions.
+# --- Command handler functions ---
 async def async_handle_user_command(action, args):
     endpoint = "/user"
     if action == "create":
@@ -66,8 +67,6 @@ async def async_handle_user_command(action, args):
         await async_send_request("POST", endpoint, data)
     elif action == "update":
         user_id = safe_int(args[0])
-        if user_id == -4321:
-            user_id = ""
         updates = parse_update_fields(args[1:])
         data = {"command": "update", "id": user_id, **updates}
         await async_send_request("POST", endpoint, data)
@@ -89,8 +88,6 @@ async def async_handle_product_command(action, args):
     endpoint = "/product"
     if action == "create":
         product_id, name, description, price, quantity = (args + [""] * 5)[:5]
-        if safe_int(quantity) != safe_float(quantity):
-            quantity = ""
         data = {
             "command": "create",
             "id": safe_int(product_id),
@@ -102,15 +99,11 @@ async def async_handle_product_command(action, args):
         await async_send_request("POST", endpoint, data)
     elif action == "update":
         product_id, name, description, price, quantity = (args + [""] * 5)[:5]
-        if safe_int(quantity) != safe_float(quantity):
-            quantity = ""
         updates = parse_update_fields(args[1:])
         data = {"command": "update", "id": safe_int(product_id), **updates}
         await async_send_request("POST", endpoint, data)
     elif action == "delete":
         product_id, name, description, price, quantity = (args + [""] * 5)[:5]
-        if safe_int(quantity) != safe_float(quantity):
-            quantity = ""
         data = {
             "command": "delete",
             "id": safe_int(product_id),
@@ -147,36 +140,52 @@ def parse_update_fields(fields):
             updates[key] = value
     return updates
 
-# Asynchronous workload reader which schedules tasks for each line.
-async def async_read_workload(file_path):
-    tasks = []
-    with open(file_path, "r") as file:
-        for line in file:
-            line = line.strip()
-            if not line or line.startswith("#"):
-                continue
-            parts = shlex.split(line)
-            if len(parts) < 2:
-                continue
-            entity = parts[0]
-            action = parts[1]
-            args = parts[2:]
-            if entity == "USER":
-                tasks.append(asyncio.create_task(async_handle_user_command(action, args)))
-            elif entity == "PRODUCT":
-                tasks.append(asyncio.create_task(async_handle_product_command(action, args)))
-            elif entity == "ORDER":
-                tasks.append(asyncio.create_task(async_handle_order_command(args)))
-            else:
-                print("Invalid Command.")
-    # Await completion of all tasks concurrently.
-    await asyncio.gather(*tasks)
+# --- Data processing: Process each workload file line ---
+async def process_workload_line(line):
+    try:
+        parts = shlex.split(line)
+        if len(parts) < 2:
+            return
+        entity = parts[0].upper()
+        action = parts[1].lower()
+        args = parts[2:]
+        if entity == "USER":
+            await async_handle_user_command(action, args)
+        elif entity == "PRODUCT":
+            await async_handle_product_command(action, args)
+        elif entity == "ORDER":
+            await async_handle_order_command(args)
+        else:
+            print("Invalid command:", line)
+    except Exception as e:
+        print("Error processing line:", line, e)
 
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
+# --- Throttling loop: Send commands at a fixed rate ---
+async def send_requests_from_workload(file_path, requests_per_second):
+    with open(file_path, "r") as f:
+        lines = [line.strip() for line in f if line.strip() and not line.startswith("#")]
+    total_lines = len(lines)
+    if total_lines == 0:
+        print("No workload commands found.")
+        return
+
+    interval = 1.0 / requests_per_second
+    start_time = time.time()
+    for i, line in enumerate(lines):
+        # Schedule the processing of this line as a separate async task.
+        asyncio.create_task(process_workload_line(line))
+        await asyncio.sleep(interval)
+    end_time = time.time()
+    print(f"Processed {total_lines} commands in {end_time - start_time:.2f} seconds.")
+
+# --- Main function ---
+def main():
+    if len(sys.argv) < 3:
+        print("Usage: python workload.py <workload_file> <requests_per_second>")
         sys.exit(1)
     workload_file = sys.argv[1]
-    start_time = time.time()
-    asyncio.run(async_read_workload(workload_file))
-    end_time = time.time()
-    print(f"Elapsed time: {end_time - start_time:.6f} seconds")
+    rps = safe_int(sys.argv[2], 100)
+    asyncio.run(send_requests_from_workload(workload_file, rps))
+
+if __name__ == "__main__":
+    main()
