@@ -76,10 +76,10 @@ public class Main {
         JSONObject orderConfig = orderServices.getJSONObject(instanceIndex);
         int port = orderConfig.getInt("port");
 
-        userIP = "http://127.0.0.1";
+        userIP = "127.0.0.1";
         userPort = 3001;
 
-        productIP = "http://127.0.0.1";
+        productIP = "127.0.0.1";
         productPort = 3002;
 
         initDatabase();

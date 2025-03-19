@@ -43,7 +43,8 @@ def send_request(method, endpoint, data=None):
             headers = {"Content-Type": "application/json"}
             response = requests.post(url, json=data, headers=headers)
         # Print status code for debugging
-        #print(f"{method} {url} -> {response.status_code}")
+        print(f"{method} {url} -> {response.status_code}")
+        #print(f"Response: {response.status_code} - {response.text}")
     except requests.exceptions.RequestException as e:
         print(f"ERROR on {url}: {e}")
 
